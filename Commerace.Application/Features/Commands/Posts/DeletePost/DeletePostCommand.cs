@@ -32,7 +32,6 @@ namespace Media.Application.Features.Commands.Posts.DeletePost
             {
                 var post = await postRepository.DeleteByIdAsync(request.PostId);
 
-
                 return post;
             }
         }

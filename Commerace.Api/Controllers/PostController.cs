@@ -22,11 +22,9 @@ namespace Commerace.Api.Controllers
     public class PostController : ControllerBase
     {
         private readonly IMediator mediator;
-        private readonly UserDbContext userContext;
-        public PostController(IMediator mediator, UserDbContext userDbContext)
+        public PostController(IMediator mediator)
         {
             this.mediator = mediator;
-            this.userContext = userDbContext;
         }
 
 
@@ -39,28 +37,14 @@ namespace Commerace.Api.Controllers
             return Ok(Product);
 
         }
-        [HttpGet("GetAllPostAndCommand")]
-        public async Task<IActionResult> GetAllPostssss()
-        {
-            var posts = userContext.Posts.Include(p => p.Comments).ToList();
 
-            return Ok(posts);
+        [HttpGet("GetAllPostsByUserName")]
+        public async Task<IActionResult> GetAllPostsByUserName([FromQuery] GetPostByUserNameQuery request)
+        {
+            var Post = await mediator.Send(request);
+            return Ok(Post);
 
         }
-        [HttpGet("GetAllUserPosts")]
-        public async Task<IActionResult> GetAllUserPosts(string username)
-        {
-            var posts = userContext.Posts.Include(p => p.Comments).ToList();
-
-            var users = userContext.AppUsers.ToList();
-
-            var userposts = users.FirstOrDefault(s => s.UserName == username);
-
-
-            return Ok(userposts);
-
-        }
-
 
         [HttpPost]
         public async Task<IActionResult> CreatePost(CreatePostCommand command)
@@ -69,14 +53,11 @@ namespace Commerace.Api.Controllers
         }
 
 
-        [HttpDelete]
+        [HttpDelete("DeletePost")]
         public async Task<IActionResult> DeletePost(DeletePostCommand command)
         {
             return Ok(await mediator.Send(command));
         }
-
-      
-
 
     }
 }

@@ -18,7 +18,6 @@ namespace Media.Application.Features.Commands.Posts.CreatePost
         public int PostId { get; set; }
 
 
-
         public class CreateCommentCommandHandler : IRequestHandler<CreateCommentCommand, object>
         {
 
@@ -35,9 +34,16 @@ namespace Media.Application.Features.Commands.Posts.CreatePost
 
             public async Task<object> Handle(CreateCommentCommand request, CancellationToken cancellationToken)
             {
-                Media.Domain.Comment comment = _mapper.Map<Media.Domain.Comment>(request);
+
+
+                var Comment = new Comment
+                {
+                    Content = request.Content,
+                    CreatedOn = DateTime.Now,
+                    PostId = request.PostId,
+                };
                 
-                 await _repository.AddAsync(comment);
+                 await _repository.AddAsync(Comment);
 
                 return null;
             }

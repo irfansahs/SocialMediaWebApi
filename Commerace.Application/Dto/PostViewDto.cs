@@ -16,6 +16,7 @@ namespace Commerace.Application.Dto
         [JsonIgnore]
         public List<Comment> Comments { get; set; }
         public List<Like> Likes { get; set; }
+        public string UserName { get; set; }
 
 
     }

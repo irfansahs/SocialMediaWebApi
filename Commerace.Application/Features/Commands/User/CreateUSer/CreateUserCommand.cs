@@ -14,9 +14,13 @@ namespace Media.Application.Features.Commands.User.CreateUSer
 {
     public class CreateUserCommand : IRequest<UserViewDto>
     {
+
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public string ProfileImage { get; set; }
+        public string UserColor { get; set; }
+
 
         public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, UserViewDto>
         {
@@ -37,6 +41,8 @@ namespace Media.Application.Features.Commands.User.CreateUSer
                     Id = Guid.NewGuid().ToString(),
                     UserName = request.UserName,
                     Email = request.Email,
+                    ProfileImage = request.ProfileImage,
+                    UserColor = request.UserColor,
 
                 }, request.Password);
 

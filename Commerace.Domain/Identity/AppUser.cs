@@ -9,6 +9,8 @@ namespace Media.Domain.Identity
 {
     public class AppUser : IdentityUser
     {
+        public string? ProfileImage { get; set; }
+        public string? UserColor { get; set; }
         public List<Post> Posts { get; set; }
     }
 }

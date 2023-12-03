@@ -30,8 +30,8 @@ namespace Commerace.Application.Features.Queries.GetAllComments
 
             public async Task<object> Handle(GetAllCommentsQuery request, CancellationToken cancellationToken)
             {
-                var yorum = await _repository.GetByIdAsync(request.PostId);
-                
+                var yorum =  await _repository.GetByNameAsync(x => x.PostId == request.PostId);
+
                 return yorum;
             }
         }

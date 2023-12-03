@@ -1,6 +1,7 @@
 ﻿using Commerace.Application;
 using Commerace.Application.Dto;
 using Commerace.Application.Features.AppUser;
+using Commerace.Application.Features.Queries.GetAllProducts;
 using Commerace.Application.Features.Queries.GetAllUsers;
 using Media.Application;
 using Media.Application.Dto;
@@ -33,6 +34,14 @@ namespace Commerace.Api.Controllers
             return Ok(users);
 
         }
+
+        [HttpGet("GetUserByName")]
+        public async Task<IActionResult> GetUserByName([FromQuery] GetUserByNameQuery request)
+        {
+            var users = await mediator.Send(request);
+            return Ok(users);
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> CreateUser(CreateUserCommand command)

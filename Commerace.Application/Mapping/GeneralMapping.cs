@@ -27,6 +27,7 @@ namespace Commerace.Application.Mapping
 
             CreateMap<Post, PostViewDto>().ReverseMap();
 
+            CreateMap<AppUser, UserResponseDto>().ReverseMap();
 
 
         }

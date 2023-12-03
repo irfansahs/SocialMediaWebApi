@@ -13,27 +13,25 @@ namespace Media.Application.Features.Commands.Posts.DeletePost
 {
     public class DeleteCommentCommand : IRequest<object>
     {
-        public int PostId { get; set; }
-
+        public int CommentId { get; set; }
 
         public class DeleteCommentCommandHandler : IRequestHandler<DeleteCommentCommand, object>
         {
 
             private readonly IMapper _mapper;
-            private readonly IPostRepository postRepository;
+            private readonly ICommentRepository commentRepository;
 
-            public DeleteCommentCommandHandler(IMapper mapper, IPostRepository postRepository)
+            public DeleteCommentCommandHandler(IMapper mapper, ICommentRepository commentRepository)
             {
                 _mapper = mapper;
-                this.postRepository = postRepository;
+                this.commentRepository = commentRepository;
             }
 
             public async Task<object> Handle(DeleteCommentCommand request, CancellationToken cancellationToken)
             {
-                var post = await postRepository.DeleteByIdAsync(request.PostId);
+                var comment = await commentRepository.DeleteByIdAsync(request.CommentId);
 
-
-                return post;
+                return comment;
             }
         }
     }

@@ -1,15 +1,18 @@
-﻿using Commerace.Application;
+﻿using Bogus;
+using Commerace.Application;
+using Media.Application;
 using Media.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Commerace.Infrastructure
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class 
     {
         private readonly UserDbContext userDbContext;
 
@@ -43,6 +46,9 @@ namespace Commerace.Infrastructure
             return user;
         }
 
-
+        public async Task<List<T>> GetByNameAsync(Expression<Func<T, bool>> filter)
+        {
+            return await userDbContext.Set<T>().Where(filter).ToListAsync();
+        }
     }
 }
