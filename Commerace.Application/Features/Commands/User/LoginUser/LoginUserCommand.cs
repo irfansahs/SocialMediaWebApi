@@ -50,7 +50,15 @@ namespace Media.Application.Features.Commands.User.LoginUser
                 if (result.Succeeded)
                 {
                     var token = _tokenHandler.CreateAccessToken(5);
-                    return token;
+
+                    var response = new
+                    {
+                        Token = token,
+                        profileImage = appuser.ProfileImage,
+                        userName = appuser.UserName,
+                        userColor = appuser.UserColor,
+                    };
+                    return response;
                 }
                 return result;
             }

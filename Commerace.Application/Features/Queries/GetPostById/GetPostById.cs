@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace Commerace.Application.Features.Queries.GetAllProducts
 {
-    public class GetPostByUserName : IRequest<List<PostViewDto>>
+    public class GetPostById : IRequest<PostViewDto>
     {
-        public string UserName { get; set; }
+        public int PostId { get; set; }
 
-        public class GetPostByUserNameHandler : IRequestHandler<GetPostByUserName, List<PostViewDto>>
+        public class GetPostByIdHandler : IRequestHandler<GetPostById, PostViewDto>
         {
 
             private readonly IPostRepository _repository;
@@ -24,7 +24,7 @@ namespace Commerace.Application.Features.Queries.GetAllProducts
             private readonly IMapper _mapper;
 
 
-            public GetPostByUserNameHandler(IPostRepository repository, IMapper mapper, UserManager<Media.Domain.Identity.AppUser> userManager)
+            public GetPostByIdHandler(IPostRepository repository, IMapper mapper, UserManager<Media.Domain.Identity.AppUser> userManager)
             {
                 _userManager = userManager;
                 _mapper = mapper;
@@ -32,12 +32,12 @@ namespace Commerace.Application.Features.Queries.GetAllProducts
             }
 
 
-            public async Task<List<PostViewDto>> Handle(GetPostByUserName request, CancellationToken cancellationToken)
+            public async Task<PostViewDto> Handle(GetPostById request, CancellationToken cancellationToken)
             {
 
-                var posts = await _repository.GetByNameAsync(x => x.UserName == request.UserName);
+                var posts = await _repository.GetByIdAsync(request.PostId);
 
-                var viewmodel = _mapper.Map<List<PostViewDto>>(posts);
+                var viewmodel = _mapper.Map<PostViewDto>(posts);
 
                 return viewmodel;
             }

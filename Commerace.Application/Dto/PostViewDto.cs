@@ -12,12 +12,10 @@ namespace Commerace.Application.Dto
     {
         public int Id { get; set; }
         public string Content { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedOn { get; set; }
         [JsonIgnore]
         public List<Comment> Comments { get; set; }
         public List<Like> Likes { get; set; }
         public string UserName { get; set; }
-
-
     }
 }

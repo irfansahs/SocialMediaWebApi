@@ -2,6 +2,7 @@
 using Commerace.Application.Dto;
 using Commerace.Application.Features.Queries.GetAllProducts;
 using Media.Application.Dto;
+using Media.Application.Features.Commands.Like.CreateLike;
 using Media.Application.Features.Commands.Posts.CreatePost;
 using Media.Domain;
 using Media.Domain.Identity;
@@ -29,6 +30,7 @@ namespace Commerace.Application.Mapping
 
             CreateMap<AppUser, UserResponseDto>().ReverseMap();
 
+            CreateMap<Like, CreateLikeCommand>().ReverseMap();
 
         }
 

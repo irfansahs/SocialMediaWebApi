@@ -41,14 +41,12 @@ namespace Media.Application.Features.Commands.Posts.CreatePost
 
                 var post = new Post
                 {
-                    Content = request.Content,
+                    UserName = user.UserName,
                     CreatedOn = DateTime.Now,
-                    UserName = user.UserName
+                    Content = request.Content
                 };
 
-
                 await _repository.AddAsync(post);
-
 
                 return null;
             }

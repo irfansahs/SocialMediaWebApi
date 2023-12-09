@@ -39,9 +39,17 @@ namespace Commerace.Api.Controllers
         }
 
         [HttpGet("GetAllPostsByUserName")]
-        public async Task<IActionResult> GetAllPostsByUserName([FromQuery] GetPostByUserNameQuery request)
+        public async Task<IActionResult> GetAllPostsByUserName([FromQuery] GetPostByUserName request)
         {
             var Post = await mediator.Send(request);
+            return Ok(Post);
+
+        }
+        [HttpGet("GetPostById")]
+        public async Task<IActionResult> GetPostById([FromQuery] GetPostById request)
+        {
+            var Post = await mediator.Send(request);
+
             return Ok(Post);
 
         }

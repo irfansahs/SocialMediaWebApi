@@ -21,6 +21,7 @@ using Microsoft.AspNetCore.Identity;
 using Media.Application;
 using Media.Infrastructure.Services;
 using Media.Application.Features.Commands.User.CreateUSer;
+using Media.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -74,6 +75,7 @@ builder.Services.AddScoped<ITokenHandler, Commerace.Infrastructure.Services.Toke
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IPostRepository, PostRepository>();
 builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+builder.Services.AddScoped<ILikeRepository, LikeRepository>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 
 
