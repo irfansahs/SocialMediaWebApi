@@ -9,5 +9,6 @@ namespace Commerace.Application
 {
     public interface IPostRepository : IGenericRepository<Post>
     {
+        int GetLike(int postId);
     }
 }

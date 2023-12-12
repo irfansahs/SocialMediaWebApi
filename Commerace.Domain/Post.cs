@@ -17,6 +17,7 @@ namespace Media.Domain
         public List<Comment> Comments { get; set; }
         public List<Like> Likes { get; set; }
         public string UserName { get; set; }
+        public int TotalLikes => Likes?.Count ?? 0;
 
     }
 }

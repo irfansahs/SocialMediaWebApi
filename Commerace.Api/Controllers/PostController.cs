@@ -37,6 +37,7 @@ namespace Commerace.Api.Controllers
             return Ok(Product);
 
         }
+        
 
         [HttpGet("GetAllPostsByUserName")]
         public async Task<IActionResult> GetAllPostsByUserName([FromQuery] GetPostByUserName request)

@@ -16,6 +16,8 @@ namespace Media.Domain
         public DateTime CreatedOn { get; set; }
         [JsonIgnore]
         public int PostId { get; set; }
+
+        
     }
 
 }

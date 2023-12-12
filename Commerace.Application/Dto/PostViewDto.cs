@@ -14,8 +14,9 @@ namespace Commerace.Application.Dto
         public string Content { get; set; }
         public DateTime CreatedOn { get; set; }
         [JsonIgnore]
-        public List<Comment> Comments { get; set; }
-        public List<Like> Likes { get; set; }
         public string UserName { get; set; }
+        public int LikeCount { get; set; }
+        public bool IsLiked { get; set; }
+
     }
 }

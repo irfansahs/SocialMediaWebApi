@@ -10,8 +10,8 @@ namespace Media.Domain
     public class Like
     {
         public int Id { get; set; }
-        public DateTime CreatedOn { get; set; }
         public int PostId { get; set; }
-    }
+        public string UserName { get; set; }
 
+    }
 }
