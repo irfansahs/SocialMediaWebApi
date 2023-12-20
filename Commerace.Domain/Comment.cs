@@ -13,6 +13,7 @@ namespace Media.Domain
         [Key]
         public int Id { get; set; }
         public string Content { get; set; }
+        public string UserName { get; set; }
         public DateTime CreatedOn { get; set; }
         [JsonIgnore]
         public int PostId { get; set; }

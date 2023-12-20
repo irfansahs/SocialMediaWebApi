@@ -9,6 +9,8 @@ using Media.Application.Features.AppUser;
 using Media.Application.Features.Commands.Posts.DeletePost;
 using Media.Application.Features.Commands.User.CreateUSer;
 using Media.Application.Features.Commands.User.LoginUser;
+using Media.Application.Features.Commands.User.UpdateUser;
+using Media.Application.Features.Queries.GetWhoToFollow;
 using Media.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -36,18 +38,32 @@ namespace Commerace.Api.Controllers
         }
 
         [HttpGet("GetUserByName")]
-        public async Task<IActionResult> GetUserByName([FromQuery] GetUserByNameQuery request)
+        public async Task<IActionResult> GetUserByName([FromQuery] GetProfileByNameQuery request)
         {
             var users = await mediator.Send(request);
             return Ok(users);
         }
 
+        [HttpGet("GetWhoToFollowQuery")]
+        public async Task<IActionResult> GetWhoToFollowQuery([FromQuery] GetWhoToFollowQuery request)
+        {
+            var users = await mediator.Send(request);
+            return Ok(users);
+        }
 
         [HttpPost]
         public async Task<IActionResult> CreateUser(CreateUserCommand command)
         {
             var response = await mediator.Send(command);
 
+            return Ok(response);
+
+        }
+        [HttpPut]
+        public async Task<IActionResult> UpdateUser(UpdateUserCommand command)
+        {
+            var response = await mediator.Send(command);
+            
             return Ok(response);
 
         }

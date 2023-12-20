@@ -13,7 +13,8 @@ namespace Commerace.Application.Dto
         public string Content { get; set; }
         public DateTime CreatedOn { get; set; }
         public int PostId { get; set; }
-
+        public string? UserName { get; set; }
+        public string? ProfileImage { get; set; }
 
     }
 }

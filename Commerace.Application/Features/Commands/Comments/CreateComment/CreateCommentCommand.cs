@@ -13,10 +13,9 @@ namespace Media.Application.Features.Commands.Posts.CreatePost
 {
     public class CreateCommentCommand : IRequest<object>
     {
+        public string UserName { get; set; }
         public string Content { get; set; }
-        public DateTime CreatedOn { get; set; }
         public int PostId { get; set; }
-
 
         public class CreateCommentCommandHandler : IRequestHandler<CreateCommentCommand, object>
         {
@@ -38,6 +37,7 @@ namespace Media.Application.Features.Commands.Posts.CreatePost
 
                 var Comment = new Comment
                 {
+                    UserName = request.UserName,
                     Content = request.Content,
                     CreatedOn = DateTime.Now,
                     PostId = request.PostId,

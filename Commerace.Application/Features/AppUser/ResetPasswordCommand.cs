@@ -63,7 +63,8 @@ namespace Media.Application.Features.AppUser
                     mail.IsBodyHtml = true;
 
 
-                    string text = "<a href='http://localhost:3000/PasswordReset/" + appUser.Id + "/" + resetToken + "> Sifre Yenileme </a>";
+                    string text = "<a href='http://localhost:3000/PasswordReset/" + appUser.Id + "/" + resetToken + "'> Sifre Yenileme </a>";
+
                     mail.Body = text;
 
                     var smtpClient = new SmtpClient("smtp.gmail.com")

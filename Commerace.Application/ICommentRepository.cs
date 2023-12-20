@@ -9,6 +9,7 @@ namespace Commerace.Application
 {
     public interface ICommentRepository : IGenericRepository<Comment>
     {
+        Task<int> GetCommentsCount(int PostId);
 
     }
 }

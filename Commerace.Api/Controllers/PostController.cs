@@ -6,6 +6,8 @@ using Commerace.Infrastructure;
 using Media.Application.Features.Commands.Posts.CreatePost;
 using Media.Application.Features.Commands.Posts.DeletePost;
 using Media.Application.Features.Commands.User.CreateProduct;
+using Media.Application.Features.Queries.GetPostByContent;
+using Media.Application.Features.Queries.GetTrends;
 using Media.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -37,7 +39,14 @@ namespace Commerace.Api.Controllers
             return Ok(Product);
 
         }
-        
+        [HttpGet("GetPostByContent")]
+        public async Task<IActionResult> GetPostByContent([FromQuery] GetPostByContentQuery request)
+        {
+            List<PostViewDto> Product = await mediator.Send(request);
+
+            return Ok(Product);
+
+        }
 
         [HttpGet("GetAllPostsByUserName")]
         public async Task<IActionResult> GetAllPostsByUserName([FromQuery] GetPostByUserName request)
@@ -54,7 +63,14 @@ namespace Commerace.Api.Controllers
             return Ok(Post);
 
         }
+        [HttpGet("GetTrends")]
+        public async Task<IActionResult> GetTrends([FromQuery] GetTrendsQuery request)
+        {
+            var Post = await mediator.Send(request);
 
+            return Ok(Post);
+
+        }
         [HttpPost]
         public async Task<IActionResult> CreatePost(CreatePostCommand command)
         {

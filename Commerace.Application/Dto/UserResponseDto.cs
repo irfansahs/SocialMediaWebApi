@@ -12,6 +12,9 @@ namespace Media.Application.Dto
         public string UserName { get; set; }
         public string ProfileImage { get; set; }
         public string UserColor { get; set; }
+        public bool IsFollow { get; set; }
+        public int FollowCount { get; set; }
+        public int FollowersCount { get; set; }
 
     }
 }

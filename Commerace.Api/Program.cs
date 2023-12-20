@@ -76,6 +76,9 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IPostRepository, PostRepository>();
 builder.Services.AddScoped<ICommentRepository, CommentRepository>();
 builder.Services.AddScoped<ILikeRepository, LikeRepository>();
+
+builder.Services.AddScoped<IFollowRepository, FollowRepository>();
+
 builder.Services.AddScoped<IEmailService, EmailService>();
 
 

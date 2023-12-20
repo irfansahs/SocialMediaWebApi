@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Commerace.Application.Dto;
 using Media.Application;
+using Media.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -22,18 +23,19 @@ namespace Commerace.Application.Features.Queries.GetAllProducts
 
             private readonly IPostRepository _repository;
             private readonly ILikeRepository _Likerepository;
-
+            private readonly ICommentRepository _commentRepository;
             readonly UserManager<Media.Domain.Identity.AppUser> _userManager;
 
             private readonly IMapper _mapper;
 
 
-            public GetPostByIdHandler(IPostRepository repository, IMapper mapper, UserManager<Media.Domain.Identity.AppUser> userManager, ILikeRepository likerepository)
+            public GetPostByIdHandler(IPostRepository repository, IMapper mapper, UserManager<Media.Domain.Identity.AppUser> userManager, ILikeRepository likerepository, ICommentRepository commentRepository)
             {
+                _commentRepository = commentRepository;
                 _userManager = userManager;
                 _mapper = mapper;
                 _repository = repository;
-                _Likerepository = likerepository;   
+                _Likerepository = likerepository;
             }
 
 
@@ -42,12 +44,14 @@ namespace Commerace.Application.Features.Queries.GetAllProducts
 
                 var posts = await _repository.GetByIdAsync(request.PostId);
                 var likes = await _Likerepository.GetLikesCount(request.PostId);
-                var isliked = await _Likerepository.GetLiked(request.PostId,request.UserName);
-                
+                var isliked = await _Likerepository.GetLiked(request.PostId, request.UserName);
+
                 var viewmodel = _mapper.Map<PostViewDto>(posts);
-                
+
                 viewmodel.LikeCount = likes;
                 viewmodel.IsLiked = isliked;
+                viewmodel.ProfileImage = _userManager.Users.Where(x => x.UserName == posts.UserName).FirstOrDefault().ProfileImage;
+                viewmodel.CommentsCount = await _commentRepository.GetCommentsCount(posts.Id);
 
                 return viewmodel;
             }

@@ -12,10 +12,8 @@ namespace Commerace.Api.Controllers
     public class LİkeController : ControllerBase
     {
         private readonly IMediator mediator;
-        private readonly ILikeRepository repository;
-        public LİkeController(IMediator mediator, ILikeRepository repository)
+        public LİkeController(IMediator mediator)
         {
-            this.repository = repository;
             this.mediator = mediator;
         }
 

@@ -1,5 +1,7 @@
 ﻿using Commerace.Application;
+using Commerace.Application.Dto;
 using Media.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,5 +28,18 @@ namespace Commerace.Infrastructure
             return likeCounts;
         }
 
+        public List<Post> GetByContent(string content)
+        {
+            return _userDbContext.Posts
+                .Where(x => x.Content.Contains(content, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
+
+        public async Task<List<Post>> GetPost(string name)
+        {
+            List<Post> posts = await _userDbContext.Posts.ToListAsync();
+            
+            return posts;
+        }
     }
 }
