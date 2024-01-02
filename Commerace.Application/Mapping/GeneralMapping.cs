@@ -30,6 +30,8 @@ namespace Commerace.Application.Mapping
 
             CreateMap<AppUser, UserResponseDto>().ReverseMap();
 
+            CreateMap<Tag, TrendsResponseDto>().ReverseMap();
+
             CreateMap<Like, CreateLikeCommand>().ReverseMap();
 
         }

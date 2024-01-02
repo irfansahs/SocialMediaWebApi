@@ -8,7 +8,9 @@ namespace Media.Application.Dto
 {
     public class TrendsResponseDto
     {
-        public string[] Tag { get; set; }
-        public int Counts { get; set; }
+
+        public string Name { get; set; }
+        public int Count { get; set; }
+
     }
 }

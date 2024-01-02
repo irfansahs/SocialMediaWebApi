@@ -63,7 +63,7 @@ namespace Commerace.Api.Controllers
         public async Task<IActionResult> UpdateUser(UpdateUserCommand command)
         {
             var response = await mediator.Send(command);
-            
+
             return Ok(response);
 
         }
@@ -73,7 +73,7 @@ namespace Commerace.Api.Controllers
         [HttpPost("action")]
         public async Task<IActionResult> LoginUser(LoginUserCommand command)
         {
-          var response = await mediator.Send(command);
+            var response = await mediator.Send(command);
 
             return Ok(response);
 
@@ -110,6 +110,14 @@ namespace Commerace.Api.Controllers
             var response = await mediator.Send(command);
 
             return Ok(response);
+
+        }
+        [HttpPost("ConfirmEmail")]
+        public async Task<IActionResult> ConfirmEmail([FromBody] EmailConfirmCommand command)
+        {
+            var result = await mediator.Send(command);
+
+            return Ok(result);
 
         }
 

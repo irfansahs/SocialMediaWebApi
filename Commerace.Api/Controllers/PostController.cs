@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 
 namespace Commerace.Api.Controllers
 {
@@ -58,9 +59,11 @@ namespace Commerace.Api.Controllers
         [HttpGet("GetPostById")]
         public async Task<IActionResult> GetPostById([FromQuery] GetPostById request)
         {
-            var Post = await mediator.Send(request);
+            var post = await mediator.Send(request);
 
-            return Ok(Post);
+            var response = post != null ? new[] { post } : Array.Empty<PostViewDto>();
+
+            return Ok(response);
 
         }
         [HttpGet("GetTrends")]

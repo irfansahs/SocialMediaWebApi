@@ -13,10 +13,10 @@ namespace Media.Application.Features.Commands.User.UpdateUser
     public class UpdateUserCommand : IRequest<object>
     {
         public string UserName { get; set; }
-        public string? NewUserName { get; set; }
         public string? UserColor { get; set; }
         public string? Email { get; set; }
-        public string? ProfileImage { get; set; }
+      //  public string? ProfileImage { get; set; }
+        public string? PhoneNumber { get; set; }
 
         public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, object>
         {
@@ -37,12 +37,26 @@ namespace Media.Application.Features.Commands.User.UpdateUser
 
                 var user = await _userManager.FindByNameAsync(request.UserName);
 
-                user.PhoneNumber = "05415108885";
-                user.UserName = request.NewUserName;
-                user.UserColor = request.UserColor;
-                user.Email = request.Email;
-                user.ProfileImage = request.ProfileImage;
+                if (request.PhoneNumber != null)
+                {
+                    user.PhoneNumber = request.PhoneNumber;
+                }
 
+                if (request.UserColor != null)
+                {
+                    user.UserColor = request.UserColor;
+                }
+
+                if (request.Email != null)
+                {
+                    user.Email = request.Email;
+                }
+/*
+                if (request.ProfileImage != null)
+                {
+                    user.ProfileImage = request.ProfileImage;
+                }
+*/
                 var result = await _userManager.UpdateAsync(user);
 
                 return result;

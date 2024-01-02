@@ -49,6 +49,7 @@ namespace Commerace.Application.Features.Queries.GetAllProducts
                     post.LikeCount = await _LikeRepository.GetLikesCount(post.Id);
                     post.IsLiked = await _LikeRepository.GetLiked(post.Id, request.UserName);
                     post.ProfileImage = _userManager.Users.Where(x => x.UserName == post.UserName).FirstOrDefault()?.ProfileImage;
+                    post.UserColor = _userManager.Users.Where(x => x.UserName == post.UserName).FirstOrDefault()?.UserColor;
                 }
 
                 return viewmodel;

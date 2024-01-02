@@ -52,6 +52,8 @@ namespace Media.Application.Features.Queries.GetPostByContent
                     post.ProfileImage = _userManager.Users
                         .Where(x => x.UserName == post.UserName)
                         .FirstOrDefault()?.ProfileImage;
+                    post.UserColor = _userManager.Users.Where(x => x.UserName == post.UserName).FirstOrDefault()?.UserColor;
+
                 }
 
                 return viewmodel;

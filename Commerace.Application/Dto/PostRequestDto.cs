@@ -9,13 +9,8 @@ namespace Media.Application.Dto
 {
     public class PostRequestDto
     {
-
-        public int Id { get; set; }
+        public string UserName { get; set; }
         public string Content { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public Comment Comments { get; set; }
-        public Like Likes { get; set; }
-
-
+        public List<Tag>? TagNames { get; set; }
     }
 }

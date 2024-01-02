@@ -15,7 +15,7 @@ namespace Commerace.Application.Features.Queries.GetAllProducts
     public class GetPostByUserName : IRequest<List<PostViewDto>>
     {
         public string UserName { get; set; }
-        
+
 
         public class GetPostByUserNameHandler : IRequestHandler<GetPostByUserName, List<PostViewDto>>
         {
@@ -51,6 +51,7 @@ namespace Commerace.Application.Features.Queries.GetAllProducts
                     post.LikeCount = await _Likerepository.GetLikesCount(post.Id);
                     post.IsLiked = await _Likerepository.GetLiked(post.Id, request.UserName);
                     post.ProfileImage = _userManager.Users.Where(x => x.UserName == post.UserName).FirstOrDefault()?.ProfileImage;
+                    post.UserColor = _userManager.Users.Where(x => x.UserName == post.UserName).FirstOrDefault()?.UserColor;
                 }
 
                 return viewmodel;

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Commerace.Application;
+using Commerace.Application.Dto;
 using Media.Application.Dto;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
@@ -18,46 +19,33 @@ namespace Media.Application.Features.Queries.GetTrends
         public class GetTrendsQueryHandler : IRequestHandler<GetTrendsQuery, List<TrendsResponseDto>>
         {
 
-            private readonly IPostRepository _repository;
+            private readonly ITagRepository _tagRepository;
             private readonly IMapper _mapper;
 
 
-            public GetTrendsQueryHandler(IPostRepository repository, IMapper mapper)
+            public GetTrendsQueryHandler(ITagRepository tagRepository, IMapper mapper)
             {
                 _mapper = mapper;
-                _repository = repository;
+                _tagRepository = tagRepository;
             }
 
 
             public async Task<List<TrendsResponseDto>> Handle(GetTrendsQuery request, CancellationToken cancellationToken)
             {
+                var trends = await _tagRepository.GetAllAsync();
 
-                var posts = await _repository.GetAllAsync();
+                var trendingTags = trends
+                    .GroupBy(tag => tag.Name)
+                    .Select(group => new TrendsResponseDto
+                    {
+                        Name = group.Key,
+                        Count = group.Count()
+                    })
+                    .OrderByDescending(tagGroup => tagGroup.Count)
+                    .Take(5)
+                    .ToList();
 
-
-
-
-                var wordLists = posts.Select(post => post.Content.Split(new char[] { ' ', ',', '.', ';' }, StringSplitOptions.RemoveEmptyEntries));
-
-                // Her kelimenin sayısını hesaplamak için bir Lambda ifadesi kullanın
-                var wordCounts = wordLists.Select(words => words.Where(word => word.StartsWith("#")).Count());
-                var hashtagCount = posts.Where(post => post.Content.StartsWith("#")).Count();
-
-                var viewmodel = _mapper.Map<List<TrendsResponseDto>>(posts);
-
-
-                /*
-                foreach (var post in viewmodel)
-                {
-                    post.Tag = posts.Select(post => post.Content.Split(new char[] { ' ', ',', '.', ';' }, StringSplitOptions.RemoveEmptyEntries));
-                    post.Counts = Convert.ToInt32(wordLists.Select(words => words.Where(word => word.StartsWith("#")).Count()));
-
-                }
-                */
-
-                Console.WriteLine(hashtagCount);
-
-                return null;
+                return trendingTags;
             }
         }
     }

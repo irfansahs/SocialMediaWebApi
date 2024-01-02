@@ -5,6 +5,7 @@ using Media.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,8 +51,10 @@ namespace Commerace.Application.Features.Queries.GetAllProducts
 
                 viewmodel.LikeCount = likes;
                 viewmodel.IsLiked = isliked;
-                viewmodel.ProfileImage = _userManager.Users.Where(x => x.UserName == posts.UserName).FirstOrDefault().ProfileImage;
+                viewmodel.ProfileImage = _userManager.Users.Where(x => x.UserName == posts.UserName).FirstOrDefault()?.ProfileImage;
                 viewmodel.CommentsCount = await _commentRepository.GetCommentsCount(posts.Id);
+                viewmodel.UserColor = _userManager.Users.Where(x => x.UserName == posts.UserName).FirstOrDefault()?.UserColor;
+
 
                 return viewmodel;
             }

@@ -15,6 +15,7 @@ namespace Commerace.Application.Dto
         public DateTime? CreatedOn { get; set; }
         public string? UserName { get; set; }
         public string? ProfileImage { get; set; }
+        public string? UserColor { get; set; }
         public int? LikeCount { get; set; }
         public bool? IsLiked { get; set; }
         public int? CommentsCount { get; set;}
