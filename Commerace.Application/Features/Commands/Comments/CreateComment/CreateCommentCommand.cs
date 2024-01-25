@@ -37,10 +37,9 @@ namespace Media.Application.Features.Commands.Posts.CreatePost
 
                 var Comment = new Comment
                 {
-                    UserName = request.UserName,
                     Content = request.Content,
                     CreatedOn = DateTime.Now,
-                    PostId = request.PostId,
+              //      PostId = request.PostId,
                 };
                 
                  await _repository.AddAsync(Comment);

@@ -18,32 +18,6 @@ namespace Media.Infrastructure
         {
             _userDbContext = userDbContext;
         }
-        public async Task<bool> GetFollowed(string FollowTo, string UserName)
-        {
-            var FollowExists = await _userDbContext.Follows
-                .AnyAsync(x => x.FollowTo == FollowTo && x.UserName == UserName);
-
-            return FollowExists;
-        }
-        public async Task<bool> DeleteFollow(string UserName,string FollowTo)
-        {
-            var followToDelete = await _userDbContext.Follows
-       .FirstOrDefaultAsync(x => x.FollowTo == FollowTo && x.UserName == UserName);
-
-            if (followToDelete != null)
-            {
-                _userDbContext.Follows.Remove(followToDelete);
-                await _userDbContext.SaveChangesAsync();
-                return true;
-            }
-
-            return false;
-        }
-
-        public async Task<int> GetFollowsCount(string FollowTo)
-        {
-            var followCount = await _userDbContext.Follows.CountAsync(i => i.FollowTo == FollowTo);
-            return followCount;
-        }
+    
     }
 }

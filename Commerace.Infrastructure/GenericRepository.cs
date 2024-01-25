@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Commerace.Infrastructure
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class 
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly UserDbContext userDbContext;
 
@@ -51,5 +51,20 @@ namespace Commerace.Infrastructure
             return await userDbContext.Set<T>().Where(filter).ToListAsync();
         }
 
+        public IQueryable<T> AsQueryable()
+        {
+            return userDbContext.Set<T>().AsQueryable();
+        }
+        public async Task<List<T>> GetByFilterAsync(Expression<Func<T, bool>> filter)
+        {
+            return await userDbContext.Set<T>().Where(filter).AsQueryable().ToListAsync();
+        }
+
+        public async Task<T> DeleteAsync(T entity)
+        {
+            userDbContext.Set<T>().Remove(entity);
+            await userDbContext.SaveChangesAsync();
+            return entity;
+        }
     }
 }

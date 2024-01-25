@@ -10,9 +10,7 @@ namespace Media.Application
 {
     public interface ILikeRepository : IGenericRepository<Like>
     {
-        Task<int> GetLikesCount(int PostId);
-        Task<bool> GetLiked(int PostId, string UserName);
-        Task<bool> DeleteLike(int PostId, string UserName);
+      
 
 
     }

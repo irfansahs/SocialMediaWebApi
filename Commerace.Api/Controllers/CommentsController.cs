@@ -1,6 +1,4 @@
 ﻿using Commerace.Application.Dto;
-using Commerace.Application.Features.Queries.GetAllComments;
-using Commerace.Application.Features.Queries.GetAllProducts;
 using Media.Application.Features.Commands.Posts.CreatePost;
 using Media.Application.Features.Commands.Posts.DeletePost;
 using MediatR;
@@ -18,14 +16,6 @@ namespace Commerace.Api.Controllers
         public CommentsController(IMediator mediator)
         {
             this.mediator = mediator;
-        }
-
-
-        [HttpGet]
-        public async Task<IActionResult> GetAllComments([FromQuery] GetAllCommentsQuery request)
-        {
-            var comments = await mediator.Send(request);
-            return Ok(comments);
         }
 
         [HttpPost]

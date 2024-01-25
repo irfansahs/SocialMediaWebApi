@@ -20,33 +20,7 @@ namespace Media.Infrastructure
             _userDbContext = userDbContext;
         }
 
-        public async Task<bool> GetLiked(int PostId, string UserName)
-        {
-            var likeExists = await _userDbContext.Likes
-                .AnyAsync(like => like.PostId == PostId && like.UserName == UserName);
-
-            return likeExists;
-        }
-        public async Task<bool> DeleteLike(int PostId, string UserName)
-        {
-            var likeToDelete = await _userDbContext.Likes
-       .FirstOrDefaultAsync(like => like.PostId == PostId && like.UserName == UserName);
-
-            if (likeToDelete != null)
-            {
-                _userDbContext.Likes.Remove(likeToDelete);
-                await _userDbContext.SaveChangesAsync();
-                return true;
-            }
-
-            return false;
-        }
-
-        public async Task<int> GetLikesCount(int postId)
-        {
-            var likesCount = await _userDbContext.Likes.CountAsync(i => i.PostId == postId);
-            return likesCount;
-        }
+      
 
     }
 }

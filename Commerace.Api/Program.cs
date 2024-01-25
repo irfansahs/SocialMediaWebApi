@@ -1,6 +1,5 @@
 using Commerace.Application;
 using Commerace.Application.Abstractions;
-using Commerace.Application.Features.Queries.GetAllProducts;
 using Commerace.Application.Mapping;
 using Commerace.Application.Validators.Products;
 using Media.Domain.Identity;

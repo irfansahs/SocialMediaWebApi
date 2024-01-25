@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Commerace.Application.Features.Queries.GetAllProducts;
 using Media.Domain;
 using MediatR;
 using System;
@@ -12,8 +11,8 @@ namespace Media.Application.Features.Commands.Like.CreateLike
 {
     public class CreateLikeCommand : IRequest<object>
     {
-        public string UserName { get; set; }
         public int PostId { get; set; }
+        public string UserId { get; set; }
 
         public class CreateLikeCommandHandler : IRequestHandler<CreateLikeCommand, object>
         {
@@ -34,8 +33,9 @@ namespace Media.Application.Features.Commands.Like.CreateLike
 
                 var Like = new Media.Domain.Like
                 {
-                    UserName = request.UserName,
+                    UserId = request.UserId,
                     PostId = request.PostId,
+                    CreatedOn = DateTime.UtcNow,
                 };
 
                 await _repository.AddAsync(Like);

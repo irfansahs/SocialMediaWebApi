@@ -14,7 +14,7 @@ namespace Media.Application.Features.Commands.Posts.DeletePost
     public class DeletePostCommand : IRequest<object>
     {
         public int PostId { get; set; }
-
+        public string UserId { get; set; }
 
         public class DeletePostCommandHandler : IRequestHandler<DeletePostCommand, object>
         {
@@ -30,9 +30,13 @@ namespace Media.Application.Features.Commands.Posts.DeletePost
 
             public async Task<object> Handle(DeletePostCommand request, CancellationToken cancellationToken)
             {
-                var post = await postRepository.DeleteByIdAsync(request.PostId);
 
-                return post;
+                var like = postRepository.AsQueryable()
+                           .FirstOrDefault(i => i.UserId == request.UserId && i.Id == request.PostId);
+
+                await postRepository.DeleteAsync(like);
+
+                return null;
             }
         }
     }

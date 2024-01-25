@@ -10,8 +10,8 @@ namespace Media.Application.Features.Commands.Follow.CreateFollow
 {
     public class CreateFollowCommand : IRequest<object>
     {
-        public string UserName { get; set; }
-        public string FollowTo { get; set; }
+        public string FollowerId { get; set; }
+        public string FollowingId { get; set; }
 
         public class CreateFollowCommandHandler : IRequestHandler<CreateFollowCommand, object>
         {
@@ -25,18 +25,19 @@ namespace Media.Application.Features.Commands.Follow.CreateFollow
                 _mapper = mapper;
                 _repository = repository;
             }
-
-
             public async Task<object> Handle(CreateFollowCommand request, CancellationToken cancellationToken)
             {
+                
                 var Follow = new Media.Domain.Follow
                 {
-                    UserName = request.UserName,
-                    FollowTo = request.FollowTo,
+                    FollowerId = request.FollowerId,
+                    FollowingId = request.FollowingId,
+                    CreatedOn = DateTime.UtcNow,
                 };
+
                 await _repository.AddAsync(Follow);
 
-                return Follow;
+                return null;
             }
         }
     }

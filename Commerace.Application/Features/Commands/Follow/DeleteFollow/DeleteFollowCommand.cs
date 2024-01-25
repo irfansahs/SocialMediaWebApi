@@ -10,9 +10,8 @@ namespace Media.Application.Features.Commands.Follow.DeleteFollow
 {
     public class DeleteFollowCommand : IRequest<object>
     {
-        public string UserName { get; set; }
-        public string FollowTo { get; set; }
-
+        public string FollowerId { get; set; }
+        public string FollowingId { get; set; }
 
         public class DeleteFollowCommandHandler : IRequestHandler<DeleteFollowCommand, object>
         {
@@ -30,11 +29,12 @@ namespace Media.Application.Features.Commands.Follow.DeleteFollow
 
             public async Task<object> Handle(DeleteFollowCommand request, CancellationToken cancellationToken)
             {
-                
+                var follow = _repository.AsQueryable()
+                           .FirstOrDefault(i => i.FollowerId == request.FollowerId && i.FollowingId == request.FollowingId);
 
-                var followDelete = await _repository.DeleteFollow(request.UserName, request.FollowTo);
+                await _repository.DeleteAsync(follow);
 
-                return followDelete;
+                return null;
             }
 
 

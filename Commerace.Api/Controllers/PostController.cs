@@ -1,13 +1,15 @@
 ﻿using Bogus;
 using Commerace.Application;
 using Commerace.Application.Dto;
-using Commerace.Application.Features.Queries.GetAllProducts;
 using Commerace.Infrastructure;
 using Media.Application.Features.Commands.Posts.CreatePost;
 using Media.Application.Features.Commands.Posts.DeletePost;
 using Media.Application.Features.Commands.User.CreateProduct;
-using Media.Application.Features.Queries.GetPostByContent;
 using Media.Application.Features.Queries.GetTrends;
+using Media.Application.Features.Queries.Posts.GetAllPosts;
+using Media.Application.Features.Queries.Posts.GetPostById;
+using Media.Application.Features.Queries.Posts.GetPostFilter;
+using Media.Application.Features.Queries.Posts.GetPostsAndComments;
 using Media.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -40,32 +42,33 @@ namespace Commerace.Api.Controllers
             return Ok(Product);
 
         }
-        [HttpGet("GetPostByContent")]
-        public async Task<IActionResult> GetPostByContent([FromQuery] GetPostByContentQuery request)
-        {
-            List<PostViewDto> Product = await mediator.Send(request);
-
-            return Ok(Product);
-
-        }
-
-        [HttpGet("GetAllPostsByUserName")]
-        public async Task<IActionResult> GetAllPostsByUserName([FromQuery] GetPostByUserName request)
-        {
-            var Post = await mediator.Send(request);
-            return Ok(Post);
-
-        }
+      
         [HttpGet("GetPostById")]
         public async Task<IActionResult> GetPostById([FromQuery] GetPostById request)
         {
             var post = await mediator.Send(request);
 
-            var response = post != null ? new[] { post } : Array.Empty<PostViewDto>();
-
-            return Ok(response);
+            return Ok(post);
 
         }
+        [HttpGet("GetPostAndComments")]
+        public async Task<IActionResult> GetPostAndComments([FromQuery] GetPostAndCommentsQuery request)
+        {
+            var post = await mediator.Send(request);
+
+            return Ok(post);
+        }
+
+        [HttpGet("GetPostByFilter")]
+        public async Task<IActionResult> GetPostByFilter([FromQuery] GetPostByFilter request)
+        {
+            var post = await mediator.Send(request);
+
+            return Ok(post);
+
+        }
+
+
         [HttpGet("GetTrends")]
         public async Task<IActionResult> GetTrends([FromQuery] GetTrendsQuery request)
         {

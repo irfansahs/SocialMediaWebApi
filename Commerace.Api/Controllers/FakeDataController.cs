@@ -30,7 +30,6 @@ namespace Commerace.Api.Controllers
                 .RuleFor(i => i.Content, i => i.Commerce.ProductName())
                 .RuleFor(i => i.CreatedOn, i => i.Date.Future());
 
-
             userContext.Posts.Add(userfaker);
             }
             

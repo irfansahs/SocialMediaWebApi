@@ -10,8 +10,6 @@ namespace Media.Application
 {
     public interface IFollowRepository : IGenericRepository<Follow>
     {
-        Task<int> GetFollowsCount(string FollowTo);
-        Task<bool> GetFollowed(string FollowTo, string UserName);
-        Task<bool> DeleteFollow(string FollowTo, string UserName);
+       
     }
 }

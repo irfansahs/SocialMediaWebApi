@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Commerace.Application.Features.Queries.GetAllProducts;
 using Media.Domain;
 using MediatR;
 using System;
@@ -12,8 +11,8 @@ namespace Media.Application.Features.Commands.Like.CreateLike
 {
     public class DeleteLikeCommand : IRequest<object>
     {
-        public string UserName { get; set; }
         public int PostId { get; set; }
+        public string UserId { get; set; }
 
         public class DeleteLikeCommandHandler : IRequestHandler<DeleteLikeCommand, object>
         {
@@ -32,10 +31,12 @@ namespace Media.Application.Features.Commands.Like.CreateLike
             public async Task<object> Handle(DeleteLikeCommand request, CancellationToken cancellationToken)
             {
 
+                var like = _repository.AsQueryable()
+                           .FirstOrDefault(i => i.PostId == request.PostId && i.UserId == request.UserId);
 
-                var Delete = await _repository.DeleteLike(request.PostId,request.UserName);
+                await _repository.DeleteAsync(like);
 
-                return Delete;
+                return null;
             }
 
 

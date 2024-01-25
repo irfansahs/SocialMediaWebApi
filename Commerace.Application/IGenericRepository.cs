@@ -9,11 +9,14 @@ namespace Commerace.Application
 {
     public interface IGenericRepository<T> where T : class
     {
-        
+
         Task<List<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);
         Task<List<T>> GetByNameAsync(Expression<Func<T, bool>> filter);
+        Task<List<T>> GetByFilterAsync(Expression<Func<T, bool>> filter);
         Task<T> AddAsync(T entity);
+        Task<T> DeleteAsync(T entity);
         Task<T> DeleteByIdAsync(int id);
+        IQueryable<T> AsQueryable();
     }
 }

@@ -21,10 +21,6 @@ namespace Commerace.Infrastructure
             _userDbContext = userDbContext;
         }
 
-        public async Task<int> GetCommentsCount(int PostId)
-        {
-            var CommentsCount = await _userDbContext.Comments.CountAsync(i => i.PostId == PostId);
-            return CommentsCount;
-        }
+       
     }
 }

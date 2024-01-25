@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Media.Domain.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace Media.Domain
 {
-    public class Like
+    public class Like : BaseEntity
     {
-        public int Id { get; set; }
         public int PostId { get; set; }
-        public string UserName { get; set; }
+        public virtual Post Post { get; set; }
+        public string UserId { get; set; }
+        public virtual AppUser User { get; set; }
 
     }
 }

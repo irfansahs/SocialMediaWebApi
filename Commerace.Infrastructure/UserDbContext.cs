@@ -26,5 +26,27 @@ namespace Commerace.Infrastructure
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Like> Likes { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Follow>()
+                .HasOne(f => f.Follower)
+                .WithMany(u => u.Following)
+                .HasForeignKey(f => f.FollowerId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Follow>()
+                .HasOne(f => f.Following)
+                .WithMany(u => u.Followers)
+                .HasForeignKey(f => f.FollowingId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Follow>()
+                .HasKey(f => new { f.FollowerId, f.FollowingId });
+
+        }
     }
+
+
 }

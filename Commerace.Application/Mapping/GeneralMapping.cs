@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Commerace.Application.Dto;
-using Commerace.Application.Features.Queries.GetAllProducts;
 using Media.Application.Dto;
 using Media.Application.Features.Commands.Like.CreateLike;
 using Media.Application.Features.Commands.Posts.CreatePost;

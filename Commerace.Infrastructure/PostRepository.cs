@@ -17,29 +17,6 @@ namespace Commerace.Infrastructure
         }
         private readonly UserDbContext _userDbContext;
 
-        public int GetLike(int postId)
-        {
-
-            var likeCounts = _userDbContext.Posts
-            .Where(p => p.Id == postId)
-            .Select(p => p.Likes.Count)
-            .FirstOrDefault();
-
-            return likeCounts;
-        }
-
-        public List<Post> GetByContent(string content)
-        {
-            return _userDbContext.Posts
-                .Where(x => x.Content.Contains(content, StringComparison.OrdinalIgnoreCase))
-                .ToList();
-        }
-
-        public async Task<List<Post>> GetPost(string name)
-        {
-            List<Post> posts = await _userDbContext.Posts.ToListAsync();
-            
-            return posts;
-        }
+      
     }
 }
