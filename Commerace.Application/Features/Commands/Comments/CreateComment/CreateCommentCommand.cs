@@ -13,7 +13,7 @@ namespace Media.Application.Features.Commands.Posts.CreatePost
 {
     public class CreateCommentCommand : IRequest<object>
     {
-        public string UserName { get; set; }
+        public string UserId { get; set; }
         public string Content { get; set; }
         public int PostId { get; set; }
 
@@ -37,12 +37,13 @@ namespace Media.Application.Features.Commands.Posts.CreatePost
 
                 var Comment = new Comment
                 {
+                    UserId = request.UserId,
                     Content = request.Content,
                     CreatedOn = DateTime.Now,
-              //      PostId = request.PostId,
+                    PostId = request.PostId,
                 };
-                
-                 await _repository.AddAsync(Comment);
+
+                await _repository.AddAsync(Comment);
 
                 return null;
             }

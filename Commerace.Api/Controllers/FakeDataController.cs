@@ -27,8 +27,9 @@ namespace Commerace.Api.Controllers
             for (int a = 0; a < 20; a++)
             {
                 Post userfaker = new Faker<Post>()
-                .RuleFor(i => i.Content, i => i.Commerce.ProductName())
-                .RuleFor(i => i.CreatedOn, i => i.Date.Future());
+                .RuleFor(i => i.Content, i => i.Vehicle.Model())
+                .RuleFor(i => i.UserId, "b7efb971-1da1-464e-931a-1b1a309edfa5")
+                .RuleFor(i => i.CreatedOn, i => i.Date.Past());
 
             userContext.Posts.Add(userfaker);
             }
@@ -43,7 +44,7 @@ namespace Commerace.Api.Controllers
         {
             Comment userfaker = new Faker<Comment>()
                 .RuleFor(i => i.Content, i => i.Commerce.ProductName())
-                .RuleFor(i => i.CreatedOn, i => i.Date.Future());
+                .RuleFor(i => i.CreatedOn, i => i.Date.Past());
 
 
 

@@ -5,6 +5,7 @@ using Media.Application.Features.Commands.Like.CreateLike;
 using Media.Application.Features.Commands.Posts.CreatePost;
 using Media.Domain;
 using Media.Domain.Identity;
+using Media.Persistence.Page;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,13 +26,16 @@ namespace Commerace.Application.Mapping
             
             CreateMap<Post, CreatePostCommand>().ReverseMap();
 
-            CreateMap<Post, PostViewDto>().ReverseMap();
 
             CreateMap<AppUser, UserResponseDto>().ReverseMap();
 
             CreateMap<Tag, TrendsResponseDto>().ReverseMap();
 
             CreateMap<Like, CreateLikeCommand>().ReverseMap();
+
+            CreateMap<Post, PostViewDto>().ReverseMap();
+
+            CreateMap<IPaginate<Post>,PostListModel>().ReverseMap();
 
         }
 

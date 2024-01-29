@@ -15,6 +15,7 @@ namespace Media.Application.Dto
         public bool IsFollow { get; set; }
         public int FollowCount { get; set; }
         public int FollowersCount { get; set; }
+        public int PostsCount { get; set; }
 
     }
 }

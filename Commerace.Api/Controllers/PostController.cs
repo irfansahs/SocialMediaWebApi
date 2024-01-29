@@ -7,8 +7,8 @@ using Media.Application.Features.Commands.Posts.DeletePost;
 using Media.Application.Features.Commands.User.CreateProduct;
 using Media.Application.Features.Queries.GetTrends;
 using Media.Application.Features.Queries.Posts.GetAllPosts;
+using Media.Application.Features.Queries.Posts.GetPostByDynamic;
 using Media.Application.Features.Queries.Posts.GetPostById;
-using Media.Application.Features.Queries.Posts.GetPostFilter;
 using Media.Application.Features.Queries.Posts.GetPostsAndComments;
 using Media.Domain;
 using MediatR;
@@ -59,8 +59,8 @@ namespace Commerace.Api.Controllers
             return Ok(post);
         }
 
-        [HttpGet("GetPostByFilter")]
-        public async Task<IActionResult> GetPostByFilter([FromQuery] GetPostByFilter request)
+        [HttpGet("GetPostByDynamicQuery")]
+        public async Task<IActionResult> GetPostByFilter([FromQuery] GetPostByDynamicQuery request)
         {
             var post = await mediator.Send(request);
 

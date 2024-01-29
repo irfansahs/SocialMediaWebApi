@@ -15,8 +15,6 @@ namespace Commerace.Infrastructure
         public PostRepository(UserDbContext userDbContext) : base(userDbContext)
         {
         }
-        private readonly UserDbContext _userDbContext;
-
       
     }
 }

@@ -37,7 +37,7 @@ namespace Commerace.Api.Controllers
 
         }
 
-        [HttpGet("GetUserByName")]
+        [HttpGet("GetProfileByName")]
         public async Task<IActionResult> GetUserByName([FromQuery] GetProfileByNameQuery request)
         {
             var users = await mediator.Send(request);
@@ -45,7 +45,7 @@ namespace Commerace.Api.Controllers
         }
 
         [HttpGet("GetWhoToFollowQuery")]
-        public async Task<IActionResult> GetWhoToFollowQuery([FromQuery] GetWhoToFollowQuery request)
+        public async Task<IActionResult> GetWhoToFollowQuery([FromQuery] GetWhoToFollowQueryRequest request)
         {
             var users = await mediator.Send(request);
             return Ok(users);

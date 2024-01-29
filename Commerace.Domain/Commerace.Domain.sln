@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Media.Infrastructure", "..\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commerace.Api", "..\Commerace.Api\Commerace.Api.csproj", "{C9C0348A-C8F5-4080-AB9C-E40BA9FCA2F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Media.Persistence", "..\Media.Persistence\Media.Persistence.csproj", "{44FC6CE0-41FF-4A3C-AD77-FAA19E3CAAC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C9C0348A-C8F5-4080-AB9C-E40BA9FCA2F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9C0348A-C8F5-4080-AB9C-E40BA9FCA2F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9C0348A-C8F5-4080-AB9C-E40BA9FCA2F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44FC6CE0-41FF-4A3C-AD77-FAA19E3CAAC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44FC6CE0-41FF-4A3C-AD77-FAA19E3CAAC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44FC6CE0-41FF-4A3C-AD77-FAA19E3CAAC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44FC6CE0-41FF-4A3C-AD77-FAA19E3CAAC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

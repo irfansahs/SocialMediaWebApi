@@ -48,12 +48,14 @@ namespace Media.Application.Features.Queries.Posts.GetPostById
                     .Where(i => i.Id == request.PostId)
                     .Select(i => new PostViewDto
                     {
-                        Id = i.Id, // Assuming PostViewDto has an Id property
+                        Id = i.Id,
                         ProfileImage = i.User.ProfileImage,
                         Content = i.Content,
                         UserColor = i.User.UserColor,
                         UserName = i.User.UserName,
-                        LikeCount = i.Likes.Count(x => x.UserId == i.User.Id)
+                        LikeCount = i.Likes.Count(x => x.PostId == i.Id),
+                        CommentsCount = i.Comments.Count(x => x.PostId == i.Id),
+                        IsLiked = i.Likes.Any(x => x.Post.UserId == i.User.Id)
                     })
                     .FirstOrDefaultAsync(cancellationToken);
 

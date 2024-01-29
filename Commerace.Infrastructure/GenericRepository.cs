@@ -2,7 +2,10 @@
 using Commerace.Application;
 using Media.Application;
 using Media.Domain;
+using Media.Persistence.Dynamic;
+using Media.Persistence.Page;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,6 +68,37 @@ namespace Commerace.Infrastructure
             userDbContext.Set<T>().Remove(entity);
             await userDbContext.SaveChangesAsync();
             return entity;
+        }
+
+        public IPaginate<T> GetList(Expression<Func<T, bool>>? predicate = null,
+                                      Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
+                                      Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null,
+                                      int index = 0, int size = 10,
+                                      bool enableTracking = true)
+        {
+            IQueryable<T> queryable = Query();
+            if (!enableTracking) queryable = queryable.AsNoTracking();
+            if (include != null) queryable = include(queryable);
+            if (predicate != null) queryable = queryable.Where(predicate);
+            if (orderBy != null)
+                return orderBy(queryable).ToPaginate(index, size);
+            return queryable.ToPaginate(index, size);
+        }
+
+        public IQueryable<T> Query()
+        {
+            return userDbContext.Set<T>();
+        }
+
+        public IPaginate<T> GetListByDynamic(Media.Persistence.Dynamic.Dynamic dynamic,
+                                                   Func<IQueryable<T>, IIncludableQueryable<T, object>>?
+                                                       include = null, int index = 0, int size = 10,
+                                                   bool enableTracking = true)
+        {
+            IQueryable<T> queryable = Query().AsQueryable().ToDynamic(dynamic);
+            if (!enableTracking) queryable = queryable.AsNoTracking();
+            if (include != null) queryable = include(queryable);
+            return queryable.ToPaginate(index, size);
         }
     }
 }

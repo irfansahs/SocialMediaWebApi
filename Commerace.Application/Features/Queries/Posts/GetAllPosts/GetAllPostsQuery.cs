@@ -43,13 +43,14 @@ namespace Media.Application.Features.Queries.Posts.GetAllPosts
 
                 var list = await query.Select(i => new PostViewDto()
                 {
+                    Id = i.Id,
                     ProfileImage = i.User.ProfileImage,
                     Content = i.Content,
                     UserColor = i.User.UserColor,
                     UserName = i.User.UserName,
-                    LikeCount = i.Likes.Count(x => x.UserId == i.User.Id),
-                    CommentsCount = i.Comments.Count(x=>x.UserId == i.UserId && x.PostId == i.Id),
-                    IsLiked = i.Likes.Any(x=>x.UserId == i.UserId && x.PostId == i.Id)
+                    LikeCount = i.Likes.Count(x => x.PostId == i.Id),
+                    CommentsCount = i.Comments.Count(x=>x.PostId == i.Id),
+                    IsLiked = i.Likes.Any(x=>x.Post.UserId == i.User.Id)
                 }).ToListAsync();
 
                 var viewmodel = _mapper.Map<List<PostViewDto>>(list);

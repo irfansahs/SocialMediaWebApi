@@ -37,7 +37,7 @@ namespace Media.Application.Features.Queries.Posts.GetPostsAndComments
 
                 query = query.Include(i => i.Likes)
                              .Include(i => i.User)
-                             .Include(i => i.Comments); // Bu satırı ekleyerek Comments koleksiyonunu dahil edin
+                             .Include(i => i.Comments); 
 
                 var postAndCommentsDto = await query
                     .Where(i => i.Id == request.PostId)
@@ -48,9 +48,10 @@ namespace Media.Application.Features.Queries.Posts.GetPostsAndComments
                         Content = i.Content,
                         UserColor = i.User.UserColor,
                         UserName = i.User.UserName,
-                        LikeCount = i.Likes.Count(x => x.UserId == i.User.Id),
-                        CommentsCount = i.Comments.Count, // Yorum sayısını ekleyin
-                        Comments = i.Comments // Yorumları ekleyin
+                        LikeCount = i.Likes.Count(x => x.PostId == i.Id),
+                        CommentsCount = i.Comments.Count(x => x.PostId == i.Id),
+                        IsLiked = i.Likes.Any(x => x.Post.UserId == i.User.Id),
+                        Comments = i.Comments 
                     })
                     .FirstOrDefaultAsync(cancellationToken);
 

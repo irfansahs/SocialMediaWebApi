@@ -31,6 +31,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Commerace.Domain\Media.Domain.csproj" />
+    <ProjectReference Include="..\Media.Persistence\Media.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

@@ -53,6 +53,7 @@ namespace Media.Application.Features.Commands.User.LoginUser
 
                     var response = new
                     {
+                        Id = appuser.Id,
                         Token = token,
                         profileImage = appuser.ProfileImage,
                         userName = appuser.UserName,

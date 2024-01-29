@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Commerace.Application;
 using Commerace.Application.Dto;
+using Media.Persistence.Page;
 using Media.Application.Dto;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
@@ -9,13 +10,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Media.Persistence.Dynamic;
 
 namespace Media.Application.Features.Queries.GetTrends
 {
 
-
     public class GetTrendsQuery : IRequest<List<TrendsResponseDto>>
     {
+        public Dynamic dynamic { get; set; }
+
         public class GetTrendsQueryHandler : IRequestHandler<GetTrendsQuery, List<TrendsResponseDto>>
         {
 
@@ -45,7 +48,7 @@ namespace Media.Application.Features.Queries.GetTrends
                     .Take(5)
                     .ToList();
 
-                return trendingTags;
+                return null;
             }
         }
     }
