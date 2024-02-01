@@ -21,6 +21,8 @@ using Media.Application;
 using Media.Infrastructure.Services;
 using Media.Application.Features.Commands.User.CreateUSer;
 using Media.Infrastructure;
+using Serilog;
+using Serilog.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -86,6 +88,15 @@ builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<UserDb
 
 
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy.AllowAnyHeader().WithOrigins("http://localhost:3000", "https://localhost:3000").AllowAnyMethod()));
+
+Logger log = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("logs/log.txt")
+    .WriteTo.MSSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),"logs", autoCreateSqlTable: true)
+    .CreateLogger();
+
+builder.Host.UseSerilog(log);
+
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 

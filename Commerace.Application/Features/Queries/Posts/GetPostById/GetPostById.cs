@@ -18,7 +18,7 @@ namespace Media.Application.Features.Queries.Posts.GetPostById
 {
     public class GetPostById : IRequest<PostViewDto>
     {
-        public string UserName { get; set; }
+        public string UserId { get; set; }
         public int PostId { get; set; }
 
         public class GetPostByIdHandler : IRequestHandler<GetPostById, PostViewDto>
@@ -26,7 +26,6 @@ namespace Media.Application.Features.Queries.Posts.GetPostById
 
             private readonly IPostRepository _repository;
             private readonly IMapper _mapper;
-
 
             public GetPostByIdHandler(IPostRepository repository, IMapper mapper)
             {

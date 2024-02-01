@@ -11,7 +11,7 @@ namespace Media.Application.Dto
 {
     public class PostListModel : BasePageableModel
     {
-        public IList<Post> items { get; set; }
+        public IList<PostViewDto> items { get; set; }
 
     }
 }

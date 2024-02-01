@@ -14,7 +14,7 @@ namespace Media.Application.Features.Queries.Posts.GetPostsAndComments
 {
     public class GetPostAndCommentsQuery : IRequest<PostAndComments>
     {
-        public string UserName { get; set; }
+        public string UserId { get; set; }
         public int PostId { get; set; }
 
         public class GetPostAndCommentsHandler : IRequestHandler<GetPostAndCommentsQuery, PostAndComments>

@@ -25,7 +25,6 @@ namespace Media.Application.Features.Queries.GetTrends
             private readonly ITagRepository _tagRepository;
             private readonly IMapper _mapper;
 
-
             public GetTrendsQueryHandler(ITagRepository tagRepository, IMapper mapper)
             {
                 _mapper = mapper;

@@ -13,6 +13,7 @@ using Media.Application.Requests;
 using Media.Domain;
 using Media.Application.Dto;
 using System.Linq.Dynamic.Core;
+using Org.BouncyCastle.Asn1.Cms;
 
 namespace Media.Application.Features.Queries.Posts.GetPostByDynamic
 {
@@ -20,7 +21,7 @@ namespace Media.Application.Features.Queries.Posts.GetPostByDynamic
     {
         public string UserId { get; set; }
         public PageRequest PageRequest { get; set; }
-        public Dynamic dynamic { get; set; }
+     //  public Dynamic dynamic { get; set; }
 
         public class GetPostByDynamicQueryHandler : IRequestHandler<GetPostByDynamicQuery, PostListModel>
         {
@@ -36,18 +37,19 @@ namespace Media.Application.Features.Queries.Posts.GetPostByDynamic
             public async Task<PostListModel> Handle(GetPostByDynamicQuery request, CancellationToken cancellationToken)
             {
 
+                IPaginate<Post> paginatedPosts = _repository.GetList(
+                    include: t => t.Include(c => c.Comments).Include(c=>c.Likes).Include(c=>c.User),
+                    index: request.PageRequest.Page,
+                    size: request.PageRequest.PageSize
+                );
 
+                PostListModel postListModel = _mapper.Map<PostListModel>(paginatedPosts);
 
-                IPaginate<Post> Posts = _repository.GetListByDynamic(
-                                                           request.dynamic,
-                                                           index: request.PageRequest.Page,
-                                                           size: request.PageRequest.PageSize
-                                                           );
-
-                PostListModel viewmodels = _mapper.Map<PostListModel>(Posts);
-
-                return viewmodels;
+                return postListModel;
             }
+
+
+
         }
     }
 }
