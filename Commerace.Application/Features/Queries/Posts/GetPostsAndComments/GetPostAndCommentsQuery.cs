@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Media.Application.Dto;
 using Microsoft.EntityFrameworkCore;
+using Media.Application.Abstractions.Services;
 
 namespace Media.Application.Features.Queries.Posts.GetPostsAndComments
 {

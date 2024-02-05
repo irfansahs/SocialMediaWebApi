@@ -1,4 +1,5 @@
 ﻿using Media.Application;
+using Media.Application.Abstractions.Services;
 using Media.Application.Dto;
 using Media.Domain.Identity;
 using MimeKit;

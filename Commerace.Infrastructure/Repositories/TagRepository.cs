@@ -1,8 +1,9 @@
 ﻿using Bogus.DataSets;
-using Commerace.Infrastructure;
 using Media.Application;
+using Media.Application.Abstractions.Services;
 using Media.Application.Dto;
 using Media.Domain;
+using Media.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Media.Infrastructure
+namespace Media.Infrastructure.Repositories
 {
     public class TagRepository : GenericRepository<Tag>, ITagRepository
     {

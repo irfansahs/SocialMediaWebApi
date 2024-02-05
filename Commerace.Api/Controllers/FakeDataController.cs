@@ -1,6 +1,6 @@
 ﻿using Bogus;
-using Commerace.Infrastructure;
 using Media.Domain;
+using Media.Infrastructure.Contexts;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

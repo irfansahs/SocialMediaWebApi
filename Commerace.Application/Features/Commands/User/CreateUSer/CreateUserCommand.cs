@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Commerace.Application.Dto;
+using Media.Application.Abstractions.Services;
 using Media.Application.Dto;
 using Media.Domain;
 using Media.Domain.Identity;

@@ -1,6 +1,8 @@
 ﻿using Commerace.Application;
 using Commerace.Application.Dto;
+using Media.Application.Abstractions.Services;
 using Media.Domain;
+using Media.Infrastructure.Contexts;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
@@ -10,9 +12,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Commerace.Infrastructure
+namespace Media.Infrastructure.Repositories
 {
-    public class CommentRepository : GenericRepository<Comment> , ICommentRepository
+    public class CommentRepository : GenericRepository<Comment>, ICommentRepository
     {
         private UserDbContext _userDbContext;
 
@@ -21,6 +23,6 @@ namespace Commerace.Infrastructure
             _userDbContext = userDbContext;
         }
 
-       
+
     }
 }

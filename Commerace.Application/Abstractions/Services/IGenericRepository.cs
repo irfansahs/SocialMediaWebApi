@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Commerace.Application
+namespace Media.Application.Abstractions.Services
 {
     public interface IGenericRepository<T> where T : class
     {

@@ -1,4 +1,5 @@
 ﻿using Commerace.Application;
+using Media.Application.Dto;
 using Media.Domain;
 using System;
 using System.Collections.Generic;
@@ -6,11 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Media.Application
+namespace Media.Application.Abstractions.Services
 {
-    public interface ITagRepository : IGenericRepository<Tag>
+    public interface IProductRepository : IGenericRepository<Product>
     {
-        Task<Tag> AddAsync(List<Tag> entity);
 
     }
 }

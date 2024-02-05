@@ -1,27 +1,22 @@
 ﻿using AutoMapper;
-using Commerace.Application.Dto;
 using Media.Application.Abstractions.Services;
-using Media.Domain;
-using Media.Domain.Identity;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
-using Newtonsoft.Json;
+using Microsoft.AspNetCore.Server.IIS.Core;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Media.Application.Features.Commands.User.LoginUser
+namespace Media.Application.Features.AppUser
 {
-    public class LoginUserCommand : IRequest<object>
+    public class RefreshTokenLoginCommand : IRequest<object>
     {
+        public string RefreshToken { get; set; }
 
-        public string UserName { get; set; }
-        public string Password { get; set; }
-
-        public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, object>
+        public class RefreshTokenLoginCommandHandler : IRequestHandler<RefreshTokenLoginCommand, object>
         {
 
             private readonly IMapper _mapper;
@@ -31,7 +26,7 @@ namespace Media.Application.Features.Commands.User.LoginUser
             readonly IUserService _userService;
 
 
-            public LoginUserCommandHandler(ITokenHandler tokenHandler, IMapper mapper, SignInManager<Domain.Identity.AppUser> signInManager, UserManager<Domain.Identity.AppUser> userManager, IUserService userService)
+            public RefreshTokenLoginCommandHandler(ITokenHandler tokenHandler, IMapper mapper, SignInManager<Domain.Identity.AppUser> signInManager, UserManager<Domain.Identity.AppUser> userManager, IUserService userService)
             {
                 _mapper = mapper;
                 _userManager = userManager;
@@ -40,15 +35,11 @@ namespace Media.Application.Features.Commands.User.LoginUser
                 _userService = userService;
             }
 
-            public async Task<object> Handle(LoginUserCommand request, CancellationToken cancellationToken)
+            public async Task<object> Handle(RefreshTokenLoginCommand request, CancellationToken cancellationToken)
             {
-                var appuser = await _userManager.FindByNameAsync(request.UserName);
-                if (appuser == null)
-                {
-                    throw new Exception("Kullanıcı bulundamadı");
-                }
-                var result = await _signInManager.CheckPasswordSignInAsync(appuser, request.Password, false);
-                if (result.Succeeded)
+                var appuser = await _userManager.Users.FirstOrDefaultAsync(u => u.RefhreshToken == request.RefreshToken);
+
+                if (appuser != null && appuser?.RefhreshTokenEndDate > DateTime.UtcNow)
                 {
                     var token = _tokenHandler.CreateAccessToken(5);
                     await _userService.UpdateRefreshToken(token.RefreshToken, appuser.Id, token.Expiration, 5);
@@ -63,9 +54,8 @@ namespace Media.Application.Features.Commands.User.LoginUser
                     };
                     return response;
                 }
-                return result;
+                return new Exception("User Not Found");
             }
         }
-
     }
 }

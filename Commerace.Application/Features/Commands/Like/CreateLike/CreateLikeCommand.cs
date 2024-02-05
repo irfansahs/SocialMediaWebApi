@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Media.Application.Abstractions.Services;
 using Media.Domain;
 using MediatR;
 using System;

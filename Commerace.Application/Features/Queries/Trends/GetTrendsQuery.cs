@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Media.Persistence.Dynamic;
+using Media.Application.Abstractions.Services;
 
 namespace Media.Application.Features.Queries.GetTrends
 {

@@ -14,6 +14,7 @@ using Media.Domain;
 using Media.Application.Dto;
 using System.Linq.Dynamic.Core;
 using Org.BouncyCastle.Asn1.Cms;
+using Media.Application.Abstractions.Services;
 
 namespace Media.Application.Features.Queries.Posts.GetPostByDynamic
 {

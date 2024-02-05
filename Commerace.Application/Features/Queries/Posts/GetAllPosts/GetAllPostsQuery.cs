@@ -2,6 +2,7 @@
 using Commerace.Application;
 using Commerace.Application.Dto;
 using Media.Application;
+using Media.Application.Abstractions.Services;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

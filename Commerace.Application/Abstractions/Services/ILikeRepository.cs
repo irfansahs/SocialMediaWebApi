@@ -6,10 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Media.Application
+namespace Media.Application.Abstractions.Services
 {
-    public interface IFollowRepository : IGenericRepository<Follow>
+    public interface ILikeRepository : IGenericRepository<Like>
     {
-       
+      
+
+
     }
 }

@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Commerace.Infrastructure
+namespace Media.Infrastructure.Contexts
 {
-    public class UserDbContext : IdentityDbContext<AppUser,AppRole,string>
+    public class UserDbContext : IdentityDbContext<AppUser, AppRole, string>
     {
 
         public UserDbContext(DbContextOptions<UserDbContext> options) : base(options)

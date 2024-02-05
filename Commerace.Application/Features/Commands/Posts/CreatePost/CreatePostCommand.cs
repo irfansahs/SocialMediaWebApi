@@ -2,6 +2,7 @@
 using Bogus.DataSets;
 using Commerace.Application;
 using Commerace.Application.Dto;
+using Media.Application.Abstractions.Services;
 using Media.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Components.Forms;

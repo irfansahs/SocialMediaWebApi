@@ -79,6 +79,15 @@ namespace Commerace.Api.Controllers
 
         }
 
+        [HttpPost("RefreshToken")]
+        public async Task<IActionResult> RefreshToken(RefreshTokenLoginCommand command)
+        {
+            var response = await mediator.Send(command);
+
+            return Ok(response);
+
+        }
+
 
 
         [HttpPost("GoogleLogin")]

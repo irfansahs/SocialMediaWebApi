@@ -1,7 +1,9 @@
 ﻿using Bogus;
 using Commerace.Application;
 using Media.Application;
+using Media.Application.Abstractions.Services;
 using Media.Domain;
+using Media.Infrastructure.Contexts;
 using Media.Persistence.Dynamic;
 using Media.Persistence.Page;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +15,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Commerace.Infrastructure
+namespace Media.Infrastructure.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
@@ -90,7 +92,7 @@ namespace Commerace.Infrastructure
             return userDbContext.Set<T>();
         }
 
-        public IPaginate<T> GetListByDynamic(Media.Persistence.Dynamic.Dynamic dynamic,
+        public IPaginate<T> GetListByDynamic(Dynamic dynamic,
                                                    Func<IQueryable<T>, IIncludableQueryable<T, object>>?
                                                        include = null, int index = 0, int size = 10,
                                                    bool enableTracking = true)

@@ -1,7 +1,8 @@
 ﻿using Commerace.Application;
-using Commerace.Infrastructure;
 using Media.Application;
+using Media.Application.Abstractions.Services;
 using Media.Domain;
+using Media.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Media.Infrastructure
+namespace Media.Infrastructure.Repositories
 {
     public class LikeRepository : GenericRepository<Like>, ILikeRepository
     {
@@ -20,7 +21,7 @@ namespace Media.Infrastructure
             _userDbContext = userDbContext;
         }
 
-      
+
 
     }
 }

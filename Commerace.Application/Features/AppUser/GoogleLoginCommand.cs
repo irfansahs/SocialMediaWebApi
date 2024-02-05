@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Commerace.Application.Abstractions;
 using Commerace.Application.Dto;
 using Google.Apis.Auth;
+using Media.Application.Abstractions.Services;
 using Media.Domain;
 using Media.Domain.Identity;
 using MediatR;
@@ -25,17 +25,20 @@ namespace Commerace.Application.Features.AppUser
 
             readonly UserManager<Media.Domain.Identity.AppUser> _userManager;
             readonly SignInManager<Media.Domain.Identity.AppUser> _signInManager;
+            readonly IUserService _userService;
+
 
             private readonly IMapper _mapper;
             readonly ITokenHandler _tokenHandler;
 
 
-            public GoogleLoginCommandHandler(IMapper mapper, UserManager<Media.Domain.Identity.AppUser> userManager, SignInManager<Media.Domain.Identity.AppUser> signInManager, ITokenHandler tokenHandler)
+            public GoogleLoginCommandHandler(IUserService userService, IMapper mapper, UserManager<Media.Domain.Identity.AppUser> userManager, SignInManager<Media.Domain.Identity.AppUser> signInManager, ITokenHandler tokenHandler)
             {
                 _mapper = mapper;
                 _userManager = userManager;
                 _tokenHandler = tokenHandler;
                 _signInManager = signInManager;
+                _userService = userService;
             }
 
 
@@ -65,13 +68,14 @@ namespace Commerace.Application.Features.AppUser
 
 
                     };
-                     await _userManager.CreateAsync(appUser);
+                    await _userManager.CreateAsync(appUser);
                 }
 
                 await _userManager.AddLoginAsync(appUser, info);
 
-
                 Token token = _tokenHandler.CreateAccessToken(5);
+
+                await _userService.UpdateRefreshToken(token.RefreshToken, appUser.Id, token.Expiration, 5);
 
                 return token;
             }

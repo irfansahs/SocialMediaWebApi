@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Commerace.Application.Abstractions;
 using Commerace.Application.Features.AppUser;
 using Media.Application.Dto;
 using MediatR;
@@ -14,6 +13,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using MimeKit.Text;
+using Media.Application.Abstractions.Services;
 
 namespace Media.Application.Features.AppUser
 {

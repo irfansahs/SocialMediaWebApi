@@ -1,15 +1,15 @@
 ﻿using Commerace.Application.Dto;
-using Media.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Commerace.Application
+namespace Media.Application.Abstractions.Services
 {
-    public interface IProductRepository : IGenericRepository<Product>
+    public interface ITokenHandler
     {
-
+        Token CreateAccessToken(int minute);
+        string CreateRefreshToken();
     }
 }
