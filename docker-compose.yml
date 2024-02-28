@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  webapi:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8088:80"
+    depends_on:
+      - db
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=db;User ID=postgres;Port=5432;Database=yourdatabase;Username=yourusername;Password=yourpassword;IntegratedSecurity=true;
+      - ASPNETCORE_URLS=http://+:80
+    networks:
+      - dev_network
+
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=yourdatabase
+      - POSTGRES_USER=yourusername
+      - POSTGRES_PASSWORD=yourpassword
+    networks:
+      - dev_network
+
+  python_api:
+    build: 
+      context: C:\Users\DELL\Desktop\media-project\emotion-api
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    networks:
+      - dev_network
+
+networks:
+  dev_network:
+    driver: bridge
