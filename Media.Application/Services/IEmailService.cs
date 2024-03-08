@@ -1,6 +1,6 @@
 using Media.Application.Dtos;
 
-namespace Media.Application.Services.Repositories
+namespace Media.Application.Services
 {
      public interface IEmailService
     {

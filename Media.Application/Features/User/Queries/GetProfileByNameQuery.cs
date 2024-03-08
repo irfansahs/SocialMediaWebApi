@@ -33,16 +33,17 @@ namespace Media.Application.Features.User.Queries
                                               .AsQueryable();
 
                 var userDto = await query
-                    .Where(i => i.Id == request.UserId)
+                    .Where(i => i.UserName == request.ProfileName)
                     .Select(i => new UserResponseDto
                     {
                         UserName = i.UserName,
                         ProfileImage = i.ProfileImage,
                         UserColor = i.UserColor,
-                        IsFollow = i.Followers.Any(x => x.FollowerId == i.Id),
+                        IsFollow = i.Followers.Any(x => x.FollowerId == request.UserId),
                         PostsCount = i.Posts.Count(x => x.UserId == i.Id),
                         FollowCount = i.Followers.Count(x => x.FollowingId == i.Id),
                         FollowersCount = i.Followers.Count(x => x.FollowerId == i.Id),
+                        UserId = i.Id
                     })
                     .FirstOrDefaultAsync(cancellationToken);
 

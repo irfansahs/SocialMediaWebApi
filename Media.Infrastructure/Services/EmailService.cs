@@ -1,7 +1,7 @@
 using System.Net;
 using System.Net.Mail;
 using Media.Application.Dtos;
-using Media.Application.Services.Repositories;
+using Media.Application.Services;
 
 namespace Media.Infrastructure.Services
 {

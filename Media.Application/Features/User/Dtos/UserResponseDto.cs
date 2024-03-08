@@ -4,6 +4,7 @@ namespace Media.Application.Features.User.Dtos
     {
 
         public string UserName { get; set; }
+        public string UserId { get; set; }
         public string ProfileImage { get; set; }
         public string UserColor { get; set; }
         public bool IsFollow { get; set; }

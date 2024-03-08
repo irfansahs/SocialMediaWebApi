@@ -3834,11 +3834,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj": {
-              "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj"
+            "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj": {
+              "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj"
             },
-            "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj": {
-              "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj"
+            "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj": {
+              "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj"
             }
           }
         }

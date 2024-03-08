@@ -26,3 +26,4 @@ C:\Users\DELL\Desktop\media-project\socialmedia\Media.Persistence\obj\Debug\net6
 C:\Users\DELL\Desktop\media-project\socialmedia\Media.Persistence\obj\Debug\net6.0\Media.Persistence.pdb
 C:\Users\DELL\Desktop\media-project\socialmedia\Media.Persistence\obj\Debug\net6.0\Media.Persistence.genruntimeconfig.cache
 C:\Users\DELL\Desktop\media-project\socialmedia\Media.Persistence\obj\Debug\net6.0\ref\Media.Persistence.dll
+c:\Users\DELL\Desktop\media-project\socialmedia\Media.Persistence\obj\Debug\net6.0\Media.Persistence.sourcelink.json

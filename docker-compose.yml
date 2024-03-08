@@ -30,11 +30,18 @@ services:
     build: 
       context: C:\Users\DELL\Desktop\media-project\emotion-api
     ports:
-      - "5000:5000"
-    depends_on:
-      - db
+      - "5010:5000"
     networks:
       - dev_network
+
+  social_media:
+    build:
+      context: C:\Users\DELL\Desktop\media-project\social-media
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - dev_network      
 
 networks:
   dev_network:

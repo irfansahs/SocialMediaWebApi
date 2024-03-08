@@ -44,8 +44,8 @@ namespace Media.Application.Features.Posts.Queries
                         UserName = i.User.UserName,
                         LikeCount = i.Likes.Count(x => x.PostId == i.Id),
                         CommentsCount = i.Comments.Count(x => x.PostId == i.Id),
-                        IsLiked = i.Likes.Any(x => x.Post.UserId == i.User.Id),
-                        Comments = i.Comments 
+                        IsLiked = i.Likes.Any(x => x.Post.UserId == request.UserId && i.Id == x.PostId),
+                        Comments = i.Comments
                     })
                     .FirstOrDefaultAsync(cancellationToken);
 

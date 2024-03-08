@@ -10,6 +10,7 @@ using Media.Application.Services.Repositories;
 using Media.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Media.Infrastructure.Services;
+using Media.Application.Services;
 
 namespace Media.Infrastructure
 {
@@ -33,6 +34,8 @@ namespace Media.Infrastructure
             services.AddScoped<ITokenHandler, TokenHandler>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<IEmotionAnalyzeService, EmotionAnalyzeService>();
+            services.AddScoped<ITranslateService, TranslateService>();
 
             return services;
 

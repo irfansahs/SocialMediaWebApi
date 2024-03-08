@@ -1,5 +1,6 @@
 using AutoMapper;
 using Media.Application.Features.Posts.Dtos;
+using Media.Application.Services;
 using Media.Application.Services.Repositories;
 using Media.Domain.Entities;
 using MediatR;
@@ -18,31 +19,23 @@ namespace Media.Application.Features.Posts.Commands
         {
 
             private readonly IPostRepository _repository;
+            private readonly IEmotionAnalyzeService _emotionAnalyzeService;
             private readonly ITagRepository _tagRepository;
-
             private readonly IMapper _mapper;
 
 
-            public CreatePostCommandHandler(IPostRepository repository, IMapper mapper, ITagRepository tagRepository)
+            public CreatePostCommandHandler(IPostRepository repository, IMapper mapper, ITagRepository tagRepository,IEmotionAnalyzeService emotionAnalyzeService)
             {
                 _mapper = mapper;
                 _repository = repository;
                 _tagRepository = tagRepository;
+                _emotionAnalyzeService = emotionAnalyzeService;
             }
 
             public async Task<object> Handle(CreatePostCommand request, CancellationToken cancellationToken)
             {
 
-
-
-                using var client = new HttpClient();
-                var url = "http://localhost:5000/analyze";
-                var jsonContent = "{\"text\": \"" + request.Content + "\"}";
-                var response = await client.PostAsync(url, new StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json"));
-                var responseString = await response.Content.ReadAsStringAsync();
-                Console.WriteLine("Gelen cevap: " + responseString);
-
-                var emotionResponse = JsonConvert.DeserializeObject<EmotionResponse>(responseString);
+                EmotionResponse emotionResponse = await _emotionAnalyzeService.GetEmotionAnalyzeAsync(request.Content);
 
                 var post = new Post
                 {

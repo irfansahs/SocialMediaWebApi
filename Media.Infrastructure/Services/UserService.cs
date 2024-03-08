@@ -1,4 +1,4 @@
-using Media.Application.Services.Repositories;
+using Media.Application.Services;
 using Microsoft.AspNetCore.Identity;
 
 namespace Media.Infrastructure.Services

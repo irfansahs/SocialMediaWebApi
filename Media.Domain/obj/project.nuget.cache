@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ILV64IM3tAijYYNf/mzFgrX4kmUQ8ZSLQJOzMDPx0MqpTlZ+iYFoMdHWuhtgRdmknIrxVgqJM0Cq17zcE1RmVQ==",
+  "dgSpecHash": "8CZBdBdnWfdq78VDOW6xBhIjovDYsgca61fERy8zwNN7FnYHCBngOW5b+KGyfqBLm0GnhoZQZDA282k6ohB1mA==",
   "success": true,
-  "projectFilePath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj",
+  "projectFilePath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

@@ -1,12 +1,12 @@
 using Media.Application.Features.Posts.Commands;
 using Media.Application.Features.Posts.Queries;
-using Media.Application.Features.Tags.Commands;
+using Media.Application.Features.Tags.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Media.WebApi.Controllers
 {
-        [ApiController]
+    [ApiController]
     [Route("api/[controller]")]
     //  [Authorize(AuthenticationSchemes = "Admin")]
 
@@ -19,7 +19,7 @@ namespace Media.WebApi.Controllers
         }
 
 
-        
+
         [HttpGet("GetPostAndComments")]
         public async Task<IActionResult> GetPostAndComments([FromQuery] GetPostAndCommentsQuery request)
         {
@@ -29,20 +29,38 @@ namespace Media.WebApi.Controllers
         }
 
         [HttpGet("GetPostByDynamicQuery")]
-        public async Task<IActionResult> GetPostByFilter([FromQuery] GetPostByDynamicQuery request)
+        public async Task<IActionResult> GetPostByFilter([FromQuery] GetPostsByDynamicQuery request)
         {
             var post = await mediator.Send(request);
 
             return Ok(post);
-
         }
+        [HttpGet("GetPostsListQuery")]
+        public async Task<IActionResult> GetPostsListQuery([FromQuery] GetPostsListQuery request)
+        {
+            var post = await mediator.Send(request);
 
+            return Ok(post);
+        }
+        [HttpGet("GetPostsById")]
+        public async Task<IActionResult> GetPostsById([FromQuery] GetPostsById request)
+        {
+            var post = await mediator.Send(request);
 
+            return Ok(post);
+        }
         [HttpGet("GetTrends")]
         public async Task<IActionResult> GetTrends([FromQuery] GetTrendsQuery request)
         {
             var Post = await mediator.Send(request);
 
+            return Ok(Post);
+
+        }
+        [HttpGet("GetEmotions")]
+        public async Task<IActionResult> GetEmotions([FromQuery] GetEmotionsQuery request)
+        {
+            var Post = await mediator.Send(request);
             return Ok(Post);
 
         }

@@ -246,3 +246,4 @@ C:\Users\DELL\Desktop\media-project\socialmedia\Media.WebApi\obj\Debug\net6.0\re
 C:\Users\DELL\Desktop\media-project\socialmedia\Media.WebApi\obj\Debug\net6.0\Media.WebApi.pdb
 C:\Users\DELL\Desktop\media-project\socialmedia\Media.WebApi\obj\Debug\net6.0\Media.WebApi.genruntimeconfig.cache
 C:\Users\DELL\Desktop\media-project\socialmedia\Media.WebApi\obj\Debug\net6.0\ref\Media.WebApi.dll
+c:\Users\DELL\Desktop\media-project\socialmedia\Media.WebApi\obj\Debug\net6.0\Media.WebApi.sourcelink.json

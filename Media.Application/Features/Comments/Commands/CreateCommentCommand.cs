@@ -1,6 +1,8 @@
 using AutoMapper;
+using Media.Application.Features.Posts.Dtos;
 using Media.Application.Services.Repositories;
 using MediatR;
+using Newtonsoft.Json;
 
 namespace Media.Application.Features.Comments.Commands
 {
@@ -27,13 +29,23 @@ namespace Media.Application.Features.Comments.Commands
             public async Task<object> Handle(CreateCommentCommand request, CancellationToken cancellationToken)
             {
 
+                using var client = new HttpClient();
+                var url = "http://python_api:5010/analyze";
+                var jsonContent = "{\"text\": \"" + request.Content + "\"}";
+                var response = await client.PostAsync(url, new StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json"));
+                var responseString = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("Gelen cevap: " + responseString);
+
+                var emotionResponse = JsonConvert.DeserializeObject<EmotionResponse>(responseString);
 
                 var Comment = new Domain.Entities.Comment
                 {
                     UserId = request.UserId,
                     Content = request.Content,
-                    CreatedOn = DateTime.Now,
+                    CreatedOn = DateTime.UtcNow,
                     PostId = request.PostId,
+                    Emotion = emotionResponse.Emotion,
+                    Polarity = emotionResponse.Polarity,
                 };
 
                 await _repository.AddAsync(Comment);

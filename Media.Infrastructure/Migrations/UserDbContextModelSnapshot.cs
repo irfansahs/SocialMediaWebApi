@@ -37,6 +37,12 @@ namespace Media.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("Emotion")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Polarity")
+                        .HasColumnType("text");
+
                     b.Property<int>("PostId")
                         .HasColumnType("integer");
 
@@ -225,6 +231,9 @@ namespace Media.Infrastructure.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Polarity")
+                        .HasColumnType("text");
+
+                    b.Property<string>("PostImage")
                         .HasColumnType("text");
 
                     b.Property<string>("UserId")

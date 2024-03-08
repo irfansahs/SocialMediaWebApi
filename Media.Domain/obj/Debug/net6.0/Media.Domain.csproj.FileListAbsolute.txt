@@ -26,3 +26,4 @@ C:\Users\DELL\Desktop\media-project\socialmedia\Media.Domain\obj\Debug\net6.0\re
 C:\Users\DELL\Desktop\media-project\socialmedia\Media.Domain\obj\Debug\net6.0\Media.Domain.pdb
 C:\Users\DELL\Desktop\media-project\socialmedia\Media.Domain\obj\Debug\net6.0\Media.Domain.genruntimeconfig.cache
 C:\Users\DELL\Desktop\media-project\socialmedia\Media.Domain\obj\Debug\net6.0\ref\Media.Domain.dll
+c:\Users\DELL\Desktop\media-project\socialmedia\Media.Domain\obj\Debug\net6.0\Media.Domain.sourcelink.json

@@ -10,30 +10,32 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Media.Application.Features.Posts.Queries
 {
-    public class GetPostByDynamicQuery : IRequest<PostListModel>
+    public class GetPostsById : IRequest<PostListModel>
     {
         public string UserId { get; set; }
         public PageRequest PageRequest { get; set; }
-     //  public Dynamic dynamic { get; set; }
+        //  public Dynamic dynamic { get; set; }
 
-        public class GetPostByDynamicQueryHandler : IRequestHandler<GetPostByDynamicQuery, PostListModel>
+        public class GetPostsByIdHandler : IRequestHandler<GetPostsById, PostListModel>
         {
             private readonly IPostRepository _repository;
             private readonly IMapper _mapper;
 
-            public GetPostByDynamicQueryHandler(IPostRepository repository, IMapper mapper)
+            public GetPostsByIdHandler(IPostRepository repository, IMapper mapper)
             {
                 _mapper = mapper;
                 _repository = repository;
             }
 
-            public async Task<PostListModel> Handle(GetPostByDynamicQuery request, CancellationToken cancellationToken)
+            public async Task<PostListModel> Handle(GetPostsById request, CancellationToken cancellationToken)
             {
 
                 IPaginate<Post> paginatedPosts = _repository.GetList(
-                    include: t => t.Include(c => c.Comments).Include(c=>c.Likes).Include(c=>c.User),
+                    a => a.UserId == request.UserId,
+                    include: t => t.Include(c => c.Comments).Include(c => c.Likes).Include(c => c.User),
                     index: request.PageRequest.Page,
-                    size: request.PageRequest.PageSize
+                    size: request.PageRequest.PageSize,
+                    orderBy: query => query.OrderByDescending(post => post.CreatedOn)
                 );
 
                 PostListModel postListModel = _mapper.Map<PostListModel>(paginatedPosts);

@@ -1,6 +1,6 @@
 using AutoMapper;
 using Media.Application.Features.User.Dtos;
-using Media.Application.Services.Repositories;
+using Media.Application.Services;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 

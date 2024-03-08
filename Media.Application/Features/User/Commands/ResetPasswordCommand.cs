@@ -2,6 +2,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using AutoMapper;
+using Media.Application.Services;
 using Media.Application.Services.Repositories;
 using MediatR;
 using Microsoft.AspNetCore.Identity;

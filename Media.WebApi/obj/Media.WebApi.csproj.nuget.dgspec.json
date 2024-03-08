@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.WebApi\\Media.WebApi.csproj": {}
+    "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.WebApi\\Media.WebApi.csproj": {}
   },
   "projects": {
     "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Application\\Media.Application.csproj": {
@@ -28,11 +28,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj": {
-                "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj"
+              "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj": {
+                "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj"
               },
-              "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj": {
-                "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj"
+              "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj": {
+                "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj"
               }
             }
           }
@@ -128,14 +128,14 @@
         }
       }
     },
-    "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj": {
+    "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj",
         "projectName": "Media.Domain",
-        "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj",
+        "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\obj\\",
+        "outputPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -240,8 +240,8 @@
               "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Application\\Media.Application.csproj": {
                 "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Application\\Media.Application.csproj"
               },
-              "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj": {
-                "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj"
+              "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj": {
+                "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj"
               }
             }
           }
@@ -317,14 +317,14 @@
         }
       }
     },
-    "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj": {
+    "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj",
         "projectName": "Media.Persistence",
-        "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj",
+        "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\obj\\",
+        "outputPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -418,14 +418,14 @@
         }
       }
     },
-    "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.WebApi\\Media.WebApi.csproj": {
+    "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.WebApi\\Media.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.WebApi\\Media.WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.WebApi\\Media.WebApi.csproj",
         "projectName": "Media.WebApi",
-        "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.WebApi\\Media.WebApi.csproj",
+        "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.WebApi\\Media.WebApi.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.WebApi\\obj\\",
+        "outputPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -445,8 +445,8 @@
               "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Infrastructure\\Media.Infrastructure.csproj": {
                 "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Infrastructure\\Media.Infrastructure.csproj"
               },
-              "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj": {
-                "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj"
+              "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj": {
+                "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj"
               }
             }
           }

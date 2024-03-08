@@ -1,7 +1,7 @@
 using Media.Domain.Entities;
 
 
-namespace Media.Application.Services.Repositories
+namespace Media.Application.Services
 {
     public interface IUserService
     {

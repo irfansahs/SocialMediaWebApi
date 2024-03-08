@@ -1,5 +1,6 @@
 using System.Text;
 using AutoMapper;
+using Media.Application.Services;
 using Media.Application.Services.Repositories;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
@@ -21,7 +22,7 @@ namespace Media.Application.Features.User.Commands
             readonly SignInManager<Media.Domain.Entities.Identity.AppUser> _signInManager;
 
             private readonly IMapper _mapper;
-            private readonly Services.Repositories.IEmailService _emailService;
+            private readonly Services.IEmailService _emailService;
             readonly ITokenHandler _tokenHandler;
 
             public UpdatePasswordCommandHandler(IMapper mapper, UserManager<Media.Domain.Entities.Identity.AppUser> userManager, SignInManager<Media.Domain.Entities.Identity.AppUser> signInManager, ITokenHandler tokenHandler, IEmailService emailService)

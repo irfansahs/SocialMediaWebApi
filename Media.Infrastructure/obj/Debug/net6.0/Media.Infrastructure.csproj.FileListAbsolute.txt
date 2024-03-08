@@ -40,3 +40,4 @@ C:\Users\DELL\Desktop\media-project\socialmedia\Media.Infrastructure\obj\Debug\n
 C:\Users\DELL\Desktop\media-project\socialmedia\Media.Infrastructure\obj\Debug\net6.0\Media.Infrastructure.pdb
 C:\Users\DELL\Desktop\media-project\socialmedia\Media.Infrastructure\obj\Debug\net6.0\Media.Infrastructure.genruntimeconfig.cache
 C:\Users\DELL\Desktop\media-project\socialmedia\Media.Infrastructure\obj\Debug\net6.0\ref\Media.Infrastructure.dll
+c:\Users\DELL\Desktop\media-project\socialmedia\Media.Infrastructure\obj\Debug\net6.0\Media.Infrastructure.sourcelink.json
