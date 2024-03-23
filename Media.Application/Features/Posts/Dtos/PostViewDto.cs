@@ -10,10 +10,13 @@ namespace Media.Application.Features.Posts.Dtos
         public int? LikeCount { get; set; }
         public DateTime CreatedOn { get; set; }
         public bool? IsLiked { get; set; }
+        public bool? IsFollow { get; set; }
         public string? Emotion { get; set; }
         public string? Polarity { get; set; }
         public int? CommentsCount { get; set; }
         public string? Content { get; set; }
+        public string? SourceLanguageCode { get; set; }
+
 
     }
 }

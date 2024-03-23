@@ -6,7 +6,8 @@ namespace Media.Application.Features.Likes.Commands
 {
     public class CreateLikeCommand : IRequest<object>
     {
-        public int PostId { get; set; }
+        public int? PostId { get; set; }
+        public int? CommentId { get; set; }
         public string UserId { get; set; }
 
         public class CreateLikeCommandHandler : IRequestHandler<CreateLikeCommand, object>
@@ -30,6 +31,7 @@ namespace Media.Application.Features.Likes.Commands
                 {
                     UserId = request.UserId,
                     PostId = request.PostId,
+                    CommentId = request.CommentId,
                     CreatedOn = DateTime.UtcNow,
                 };
 

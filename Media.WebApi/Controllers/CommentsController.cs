@@ -1,4 +1,5 @@
 using Media.Application.Features.Comments.Commands;
+using Media.Application.Features.Comments.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,7 +15,13 @@ namespace Media.WebApi.Controllers
         {
             this.mediator = mediator;
         }
+        [HttpGet]
+        public async Task<IActionResult> GetShortCommentsQuery([FromQuery] GetShortCommentsQuery request)
+        {
+            var comments = await mediator.Send(request);
 
+            return Ok(comments);
+        }
         [HttpPost]
         public async Task<IActionResult> CreateComments([FromBody] CreateCommentCommand request)
         {

@@ -1,5 +1,7 @@
 using AutoMapper;
+using Media.Application.Dtos;
 using Media.Application.Features.Posts.Dtos;
+using Media.Application.Services;
 using Media.Application.Services.Repositories;
 using MediatR;
 using Newtonsoft.Json;
@@ -17,26 +19,26 @@ namespace Media.Application.Features.Comments.Commands
 
             private readonly ICommentRepository _repository;
             private readonly IMapper _mapper;
+            private readonly IEmotionAnalyzeService _emotionAnalyzeService;
+            private readonly ITagRepository _tagRepository;
+            private readonly ITranslateService _translateService;
 
 
-            public CreateCommentCommandHandler(ICommentRepository repository, IMapper mapper)
+            public CreateCommentCommandHandler(ICommentRepository repository, IMapper mapper, ITagRepository tagRepository, IEmotionAnalyzeService emotionAnalyzeService, ITranslateService translateService)
             {
                 _mapper = mapper;
                 _repository = repository;
+                _tagRepository = tagRepository;
+                _emotionAnalyzeService = emotionAnalyzeService;
+                _translateService = translateService;
             }
 
 
             public async Task<object> Handle(CreateCommentCommand request, CancellationToken cancellationToken)
             {
 
-                using var client = new HttpClient();
-                var url = "http://python_api:5010/analyze";
-                var jsonContent = "{\"text\": \"" + request.Content + "\"}";
-                var response = await client.PostAsync(url, new StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json"));
-                var responseString = await response.Content.ReadAsStringAsync();
-                Console.WriteLine("Gelen cevap: " + responseString);
-
-                var emotionResponse = JsonConvert.DeserializeObject<EmotionResponse>(responseString);
+                TranslateTextResponse translateTextResponse = await _translateService.TranslateText(request.Content);
+                EmotionResponse emotionResponse = await _emotionAnalyzeService.GetEmotionAnalyzeAsync(translateTextResponse.Trans);
 
                 var Comment = new Domain.Entities.Comment
                 {
@@ -46,6 +48,8 @@ namespace Media.Application.Features.Comments.Commands
                     PostId = request.PostId,
                     Emotion = emotionResponse.Emotion,
                     Polarity = emotionResponse.Polarity,
+                    TranslatedPost = translateTextResponse.Trans,
+                    SourceLanguageCode = translateTextResponse.source_language_code
                 };
 
                 await _repository.AddAsync(Comment);

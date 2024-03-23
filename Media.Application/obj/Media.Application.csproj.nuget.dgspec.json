@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Application\\Media.Application.csproj": {}
+    "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Application\\Media.Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Application\\Media.Application.csproj": {
+    "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Application\\Media.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Application\\Media.Application.csproj",
+        "projectUniqueName": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Application\\Media.Application.csproj",
         "projectName": "Media.Application",
-        "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Application\\Media.Application.csproj",
+        "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Application\\Media.Application.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Application\\obj\\",
+        "outputPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj": {
-                "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj"
+              "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj": {
+                "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj"
               },
-              "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj": {
-                "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj"
+              "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj": {
+                "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj"
               }
             }
           }
@@ -128,14 +128,14 @@
         }
       }
     },
-    "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj": {
+    "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj",
+        "projectUniqueName": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj",
         "projectName": "Media.Domain",
-        "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj",
+        "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\obj\\",
+        "outputPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -213,14 +213,14 @@
         }
       }
     },
-    "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj": {
+    "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj",
+        "projectUniqueName": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj",
         "projectName": "Media.Persistence",
-        "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj",
+        "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\obj\\",
+        "outputPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",

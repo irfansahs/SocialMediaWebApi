@@ -46,6 +46,12 @@ namespace Media.Infrastructure.Migrations
                     b.Property<int>("PostId")
                         .HasColumnType("integer");
 
+                    b.Property<string>("SourceLanguageCode")
+                        .HasColumnType("text");
+
+                    b.Property<string>("TranslatedPost")
+                        .HasColumnType("text");
+
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("text");
@@ -193,10 +199,13 @@ namespace Media.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("CommentId")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("PostId")
+                    b.Property<int?>("PostId")
                         .HasColumnType("integer");
 
                     b.Property<string>("UserId")
@@ -204,6 +213,8 @@ namespace Media.Infrastructure.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CommentId");
 
                     b.HasIndex("PostId");
 
@@ -236,6 +247,12 @@ namespace Media.Infrastructure.Migrations
                     b.Property<string>("PostImage")
                         .HasColumnType("text");
 
+                    b.Property<string>("SourceLanguageCode")
+                        .HasColumnType("text");
+
+                    b.Property<string>("TranslatedPost")
+                        .HasColumnType("text");
+
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("text");
@@ -255,6 +272,9 @@ namespace Media.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("CommentId")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("timestamp with time zone");
 
@@ -263,6 +283,8 @@ namespace Media.Infrastructure.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CommentId");
 
                     b.ToTable("Tags");
                 });
@@ -428,17 +450,21 @@ namespace Media.Infrastructure.Migrations
 
             modelBuilder.Entity("Media.Domain.Entities.Like", b =>
                 {
+                    b.HasOne("Media.Domain.Entities.Comment", "Comment")
+                        .WithMany("Likes")
+                        .HasForeignKey("CommentId");
+
                     b.HasOne("Media.Domain.Entities.Post", "Post")
                         .WithMany("Likes")
-                        .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PostId");
 
                     b.HasOne("Media.Domain.Entities.Identity.AppUser", "User")
                         .WithMany("Likes")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Comment");
 
                     b.Navigation("Post");
 
@@ -454,6 +480,13 @@ namespace Media.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Media.Domain.Entities.Tag", b =>
+                {
+                    b.HasOne("Media.Domain.Entities.Comment", null)
+                        .WithMany("Tags")
+                        .HasForeignKey("CommentId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -520,6 +553,13 @@ namespace Media.Infrastructure.Migrations
                         .HasForeignKey("TagsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Media.Domain.Entities.Comment", b =>
+                {
+                    b.Navigation("Likes");
+
+                    b.Navigation("Tags");
                 });
 
             modelBuilder.Entity("Media.Domain.Entities.Identity.AppUser", b =>

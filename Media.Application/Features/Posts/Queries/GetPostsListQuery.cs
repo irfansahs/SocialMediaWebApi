@@ -7,6 +7,7 @@ using Media.Persistence.Page;
 using Media.Application.Requests;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Dynamic.Core;
+using Microsoft.AspNetCore.Routing;
 
 
 namespace Media.Application.Features.Posts.Queries
@@ -20,20 +21,18 @@ namespace Media.Application.Features.Posts.Queries
         public class GetPostsListQueryHandler : IRequestHandler<GetPostsListQuery, PostListModel>
         {
             private readonly IPostRepository _repository;
-            private readonly ILikeRepository _likerepository;
-            
+
             private readonly IMapper _mapper;
 
-            public GetPostsListQueryHandler(IPostRepository repository, IMapper mapper,ILikeRepository likeRepository)
+            public GetPostsListQueryHandler(IPostRepository repository, IMapper mapper)
             {
                 _mapper = mapper;
                 _repository = repository;
-                _likerepository = likeRepository;
             }
 
             public async Task<PostListModel> Handle(GetPostsListQuery request, CancellationToken cancellationToken)
             {
-                // Tüm postları çek
+                var posts = _repository.AsQueryable().Include(c => c.Likes).Include(c => c.User);
                 IPaginate<Post> paginatedPosts = _repository.GetList(
                     include: t => t.Include(c => c.Comments).Include(c => c.Likes).Include(c => c.User),
                     index: request.PageRequest.Page,
@@ -41,13 +40,12 @@ namespace Media.Application.Features.Posts.Queries
                     orderBy: query => query.OrderByDescending(post => post.CreatedOn)
                 );
 
-                // PostListModel'e dönüştür
                 var postListModel = _mapper.Map<PostListModel>(paginatedPosts);
 
-                // IsLiked alanını ayarla
                 foreach (var postDto in postListModel.items)
                 {
-                    postDto.IsLiked = _likerepository.AsQueryable().Any(like => like.UserId == request.UserId && like.PostId == postDto.Id);
+                    postDto.IsLiked = posts.AsQueryable().Any(c => c.Likes.Any(i => i.UserId == request.UserId && i.PostId == postDto.Id));
+                    postDto.IsFollow = posts.AsQueryable().Any(c => c.User.Followers.Any(f => f.FollowingId == request.UserId && c.UserId == postDto.UserId));
                 }
 
                 return postListModel;

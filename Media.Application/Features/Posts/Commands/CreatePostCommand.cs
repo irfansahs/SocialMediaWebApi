@@ -1,4 +1,5 @@
 using AutoMapper;
+using Media.Application.Dtos;
 using Media.Application.Features.Posts.Dtos;
 using Media.Application.Services;
 using Media.Application.Services.Repositories;
@@ -21,21 +22,23 @@ namespace Media.Application.Features.Posts.Commands
             private readonly IPostRepository _repository;
             private readonly IEmotionAnalyzeService _emotionAnalyzeService;
             private readonly ITagRepository _tagRepository;
+            private readonly ITranslateService _translateService;
             private readonly IMapper _mapper;
 
 
-            public CreatePostCommandHandler(IPostRepository repository, IMapper mapper, ITagRepository tagRepository,IEmotionAnalyzeService emotionAnalyzeService)
+            public CreatePostCommandHandler(IPostRepository repository, IMapper mapper, ITagRepository tagRepository, IEmotionAnalyzeService emotionAnalyzeService, ITranslateService translateService)
             {
                 _mapper = mapper;
                 _repository = repository;
                 _tagRepository = tagRepository;
                 _emotionAnalyzeService = emotionAnalyzeService;
+                _translateService = translateService;
             }
 
             public async Task<object> Handle(CreatePostCommand request, CancellationToken cancellationToken)
             {
-
-                EmotionResponse emotionResponse = await _emotionAnalyzeService.GetEmotionAnalyzeAsync(request.Content);
+                TranslateTextResponse translateTextResponse = await _translateService.TranslateText(request.Content);
+                EmotionResponse emotionResponse = await _emotionAnalyzeService.GetEmotionAnalyzeAsync(translateTextResponse.Trans);
 
                 var post = new Post
                 {
@@ -44,13 +47,13 @@ namespace Media.Application.Features.Posts.Commands
                     Content = request.Content,
                     Emotion = emotionResponse.Emotion,
                     Polarity = emotionResponse.Polarity,
+                    TranslatedPost = translateTextResponse.Trans,
+                    SourceLanguageCode = translateTextResponse.source_language_code
                 };
 
 
-                // Hashtag içeren kelimeleri bulmak için düzenli ifade
                 Regex regex = new Regex(@"#[\w]*");
 
-                // Tüm eşleşmeleri bulmak için Matches metodu kullanılır
                 MatchCollection matches = regex.Matches(request.Content);
 
                 Tag tag = new Tag();

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj": {}
+    "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj": {
+    "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj",
+        "projectUniqueName": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj",
         "projectName": "Media.Domain",
-        "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj",
+        "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\obj\\",
+        "outputPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",

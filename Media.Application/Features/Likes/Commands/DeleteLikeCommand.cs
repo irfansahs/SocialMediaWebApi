@@ -6,8 +6,10 @@ namespace Media.Application.Features.Likes.Commands
 {
     public class DeleteLikeCommand : IRequest<object>
     {
-        public int PostId { get; set; }
+        public int? PostId { get; set; }
+        public int? CommentId { get; set; }
         public string UserId { get; set; }
+
 
         public class DeleteLikeCommandHandler : IRequestHandler<DeleteLikeCommand, object>
         {
@@ -27,7 +29,7 @@ namespace Media.Application.Features.Likes.Commands
             {
 
                 var like = _repository.AsQueryable()
-                           .FirstOrDefault(i => i.PostId == request.PostId && i.UserId == request.UserId);
+                           .FirstOrDefault(i => i.UserId == request.UserId && (i.PostId == request.PostId || i.CommentId == request.CommentId));
 
                 await _repository.DeleteAsync(like);
 

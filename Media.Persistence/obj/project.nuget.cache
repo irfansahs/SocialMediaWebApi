@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ADAalaI/oZlD8mVtzvGWJyaWPrSmX0tlUP+pYuffKL3fYpZCZBL8yTDW5FEgW+omXPUrbpGbcQ2QRp65fK2N/Q==",
+  "dgSpecHash": "CkPFiqGNk660ulFqdrFSW7O/bMIhUfcbiXxOsR9fja8Mz/rO7INVfTNTQXG4JrzPoHJxPVDfXwiGoLR1e8tglw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj",
+  "projectFilePath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\mailkit\\3.2.0\\mailkit.3.2.0.nupkg.sha512",

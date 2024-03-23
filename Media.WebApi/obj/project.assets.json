@@ -5681,11 +5681,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.WebApi\\Media.WebApi.csproj",
+      "projectUniqueName": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.WebApi\\Media.WebApi.csproj",
       "projectName": "Media.WebApi",
-      "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.WebApi\\Media.WebApi.csproj",
+      "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.WebApi\\Media.WebApi.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.WebApi\\obj\\",
+      "outputPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5702,11 +5702,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Infrastructure\\Media.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Infrastructure\\Media.Infrastructure.csproj"
+            "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Infrastructure\\Media.Infrastructure.csproj": {
+              "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Infrastructure\\Media.Infrastructure.csproj"
             },
-            "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj": {
-              "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj"
+            "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj": {
+              "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj"
             }
           }
         }

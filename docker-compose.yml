@@ -29,8 +29,9 @@ services:
   python_api:
     build: 
       context: C:\Users\DELL\Desktop\media-project\emotion-api
+      dockerfile: Dockerfile
     ports:
-      - "5010:5000"
+      - "5010:5010"
     networks:
       - dev_network
 
@@ -41,7 +42,7 @@ services:
     ports:
       - "3000:3000"
     networks:
-      - dev_network      
+      - dev_network
 
 networks:
   dev_network:

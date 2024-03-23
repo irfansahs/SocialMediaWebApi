@@ -3813,11 +3813,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Application\\Media.Application.csproj",
+      "projectUniqueName": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Application\\Media.Application.csproj",
       "projectName": "Media.Application",
-      "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Application\\Media.Application.csproj",
+      "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Application\\Media.Application.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Application\\obj\\",
+      "outputPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3834,11 +3834,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj": {
-              "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj"
+            "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj": {
+              "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Domain\\Media.Domain.csproj"
             },
-            "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj": {
-              "projectPath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj"
+            "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj": {
+              "projectPath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.Persistence\\Media.Persistence.csproj"
             }
           }
         }

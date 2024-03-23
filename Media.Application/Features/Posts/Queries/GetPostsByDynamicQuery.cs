@@ -21,18 +21,20 @@ namespace Media.Application.Features.Posts.Queries
         {
             private readonly IPostRepository _repository;
             private readonly ILikeRepository _likerepository;
-
+            private readonly IFollowRepository _followrepository;
             private readonly IMapper _mapper;
 
-            public GetPostsByDynamicQueryHandler(IPostRepository repository, IMapper mapper, ILikeRepository likeRepository)
+            public GetPostsByDynamicQueryHandler(IPostRepository repository, IMapper mapper, ILikeRepository likeRepository, IFollowRepository followRepository)
             {
                 _mapper = mapper;
                 _repository = repository;
                 _likerepository = likeRepository;
+                _followrepository = followRepository;
             }
 
             public async Task<PostListModel> Handle(GetPostsByDynamicQuery request, CancellationToken cancellationToken)
             {
+                var posts = _repository.AsQueryable().Include(c => c.Likes).Include(c => c.User);
 
                 IPaginate<Post> paginatedPosts = _repository.GetListByDynamic(
                     request.dynamic,
@@ -42,10 +44,11 @@ namespace Media.Application.Features.Posts.Queries
                 );
 
                 PostListModel postListModel = _mapper.Map<PostListModel>(paginatedPosts);
-                
+
                 foreach (var postDto in postListModel.items)
                 {
-                    postDto.IsLiked = _likerepository.AsQueryable().Any(like => like.UserId == request.UserId && like.PostId == postDto.Id);
+                    postDto.IsLiked = posts.AsQueryable().Any(c => c.Likes.Any(i => i.UserId == request.UserId && i.PostId == postDto.Id));
+                    postDto.IsFollow = posts.AsQueryable().Any(c => c.User.Followers.Any(f => f.FollowingId == request.UserId && c.UserId == postDto.UserId));
                 }
                 return postListModel;
             }

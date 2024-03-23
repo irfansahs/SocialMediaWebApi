@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "93dlMts4blfnCDboJU57ntpDSBUYgoC3vndgiGaNPlv/1fabpMdCWrwO5fHB1KUiRJZ2IP6UVVvmOBJGcaYiRA==",
+  "dgSpecHash": "jZAGA7Jq/+RdBaBt8CEEwlnppE1v/IGKr+6xq8FxpNBuIk5DtgwTOzJZ5ig9Aany+5MJvslSUqs4xoT//d+Gig==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.WebApi\\Media.WebApi.csproj",
+  "projectFilePath": "c:\\Users\\DELL\\Desktop\\media-project\\socialmedia\\Media.WebApi\\Media.WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

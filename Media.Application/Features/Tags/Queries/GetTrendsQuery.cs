@@ -35,7 +35,7 @@ namespace Media.Application.Features.Tags.Queries
             .Take(5)
             .ToList();
 
-                // Sonucu döndürüyoruz
+          
                 return trends;
             }
         }

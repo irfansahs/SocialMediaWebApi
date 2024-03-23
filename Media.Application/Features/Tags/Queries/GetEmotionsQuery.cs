@@ -34,7 +34,7 @@ namespace Media.Application.Features.Tags.Queries
                 })
                 .OrderByDescending(tag => tag.Count)
                 .ToList();
-                // Sonucu döndürüyoruz
+        
                 return trends;
             }
         }
